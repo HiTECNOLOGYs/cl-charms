@@ -1,0 +1,92 @@
+
+Introduction
+============
+
+cl-charms provides CFFI bindings to libcurses, for most Common Lisp
+implementations.
+
+It is intended to succeed cl-ncurses, which used the less portable
+UFFI instead of CFFI for foreign bindings.
+
+Indeed, cl-charms includes portions of code from cl-ncurses, and is
+largely a direct translation of the latter's UFFI definitions to CFFI.
+
+Currently, it is probably feature-equivalent to cl-ncurses and
+compatible with client code.  In the future, cl-charms may break
+compatibility with cl-ncurses and may provide additional
+functionality.
+
+cl-charms is developed by Abhishek Reddy <abhishek@abhishek.geek.nz>,
+beginning in October 2010.  It is released under an MIT-style license.
+See the file COPYING for details.
+
+Visit <http://abhishek.geek.nz/code/cl-charms> for documentation,
+updates and further information on the web.
+
+>    The imitator dooms himself to hopeless mediocrity. The
+>    inventor did it because it was natural to him, and so in him
+>    it has a charm. In the imitator something else is natural, and
+>    he bereaves himself of his own beauty, to come short of
+>    another man's.
+          -- R.W. Emerson on originality.
+
+
+Portability
+===========
+
+cl-charms has been tried with the following:
+
+*   CLISP 2.49 on Debian GNU/Linux (testing) x86-64
+*   ECL 10.7.x Git HEAD on Debian GNU/Linux (testing) x86-64
+*   SBCL 1.0.42 on Debian GNU/Linux (testing) x86-64
+*   CCL 1.4-r13119 on Debian GNU/Linux (testing) x86-64
+
+cl-charms has been tried with libncurses on Debian GNU/Linux
+(testing) only.  It may coincidentally be compatible with other curses
+libraries and operating systems.
+
+cl-charms ought to function on other implementations of Common Lisp
+and libcurses on various distributions of GNU/Linux.  See the section
+on Bugs and Contributing below for how to help test and realize this.
+
+
+Installation
+============
+
+*   Extract or copy the cl-charms/ directory somewhere
+
+*   Ensure that the file cl-charms/cl-charms.asd is in a path known to
+    your installation of ASDF (see asdf:*central-registry*)
+
+*   Evaluate something like this in your Lisp implementation:
+
+    > (asdf:load-system :cl-charms)
+
+
+Testing
+=======
+
+TODO
+
+
+Usage
+=====
+
+TODO
+
+
+Bugs and Contributing
+=====================
+
+Contributions in the form of bug reports, patches, requests or
+suggestions are welcome.  Use the issue tracker for the project in
+gitorious.org for submissions.
+
+Major areas of work to be done:
+
+*   Lots of missing functions inherited from cl-ncurses to be defined.
+*   Untried on various GNU/Linux distros and architectures.
+*   Untried with non-libncurses libraries.
+*   Test cases and sample applications.
+*   Only provides curses functions, lacks menus, panels or CDK.
+
