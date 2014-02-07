@@ -448,7 +448,7 @@
 (define-exported-constant KEY_HOME        406)
 (define-exported-constant KEY_BACKSPACE   407)
 (define-exported-constant KEY_F0          410)
-(export key_fn)
+(export 'key_fn)
 (defun                    key_fn (n)      (+ KEY_F0 n))
 (define-exported-constant KEY_DL          510)
 (define-exported-constant KEY_IL          511)
