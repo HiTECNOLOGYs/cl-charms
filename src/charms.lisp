@@ -112,18 +112,62 @@
   (x :int)
   (ch chtype))
 
+(define-exported-cfuns ("mvwaddch")
+    :int
+  (win window-ptr)
+  (y :int)
+  (x :int)
+  (ch chtype))
+
 
 ;; addchstr
-; TODO
-; C Prototype: int addchstr(const chtype *chstr);
-; C Prototype: int addchnstr(const chtype *chstr, int n);
-; C Prototype: int waddchstr(WINDOW *win, const chtype *chstr);
+(define-exported-cfuns ("addchstr")
+    :int
+  (ch chtype))
 
-; C Prototype: int waddchnstr(WINDOW *win, const chtype *chstr, int n);
-; C Prototype: int mvaddchstr(int y, int x, const chtype *chstr);
-; C Prototype: int mvaddchnstr(int y, int x, const chtype *chstr, int n);
-; C Prototype: int mvwaddchstr(WINDOW *win, int y, int x, const chtype *chstr);
-; C Prototype: int mvwaddchnstr(WINDOW *win, int y, int x, const chtype *chstr, int n);
+(define-exported-cfuns ("addchnstr")
+    :int
+  (ch chtype)
+  (n :int))
+
+(define-exported-cfuns ("waddchstr")
+    :int
+  (win window-ptr)
+  (ch chtype))
+
+(define-exported-cfuns ("waddchnstr")
+    :int
+  (win window-ptr)
+  (ch chtype)
+  (n :int))
+
+(define-exported-cfuns ("mvaddchstr")
+    :int
+  (y :int)
+  (x :int)
+  (ch chtype))
+
+(define-exported-cfuns ("mvaddchnstr")
+    :int
+  (y :int)
+  (x :int)
+  (ch chtype)
+  (n :int))
+
+(define-exported-cfuns ("mvwaddchstr")
+    :int
+  (win window-ptr)
+  (y :int)
+  (x :int)
+  (ch chtype))
+
+(define-exported-cfuns ("mvwaddchnstr")
+    :int
+  (win window-ptr)
+  (y :int)
+  (x :int)
+  (ch chtype)
+  (n :int))
 
 
 ;; addstr
