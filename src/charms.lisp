@@ -237,7 +237,7 @@
     :int
   (attrs :int))
 
-(define-exported-cfuns ("wattrof" "wattron" "wattrset")
+(define-exported-cfuns ("wattroff" "wattron" "wattrset")
     :int
   (win window-ptr)
   (attrs :int))
