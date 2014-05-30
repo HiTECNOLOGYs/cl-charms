@@ -29,18 +29,17 @@
 ;;;; TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 ;;;; SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
 (cl:in-package :cl-charms)
 
 #+sb-unicode
 (define-foreign-library libcurses
-    (:unix "libncursesw.so")
+    (:unix "libncursesw.so.5")
   (t (:default "libcurses")))
 
 #-sb-unicode
 (define-foreign-library libcurses
   (:darwin (:or "libcurses.dylib" "libncurses.dylib"))
-  (:unix (:or "libcurses.so" "libncurses.so"))
+  (:unix (:or "libncurses.so.5" "libcurses"))
   (t (:default "libcurses")))
    
 (use-foreign-library libcurses)
