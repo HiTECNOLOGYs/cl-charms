@@ -30,11 +30,10 @@
 ;;;; SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 (asdf:defsystem :cl-charms
-    :name "cl-charms"
-    :version "0.0.1"
-    :maintainer "Abhishek Reddy"
+    :version (:read-file-form "version.lisp-expr")
+    :maintainer "Mark Fedurin <hitecnologys@gmail.com>"
     :author "Abhishek Reddy <abhishek@abhishek.geek.nz>"
-    :description "Bindings for curses"
+    :description "CFFI bindings for curses."
     :depends-on (:cffi :alexandria)
     :serial t
     :components

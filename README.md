@@ -16,9 +16,9 @@ client code. In the future, cl-charms may break compatibility with cl-ncurses
 and may provide additional functionality.
 
 cl-charms has been developed by it's original author, Abhishek Reddy
-<abhishek@abhishek.geek.nz>, since beginning of October 2010 for quite some
+(abhishek@abhishek.geek.nz), since beginning of October 2010 for quite some
 time, then abandoned for unknown reason. After that, in 2014, Mark Fedurin
-<hitecnologys@gmail.com> took responsibility for keeping the library in working
+(hitecnologys@gmail.com) took responsibility for keeping the library in working
 state. It is released under an MIT-style license. See the file COPYING for
 details.
 
