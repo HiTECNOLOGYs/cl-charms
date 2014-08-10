@@ -1,5 +1,6 @@
 ;;;; This file is part of cl-charms, providing CFFI bindings to libcurses.
 ;;;;
+;;;; Copyright (c) 2014 Mark Fedurin <hitecnologys@gmail.com>
 ;;;; Copyright (c) 2010 Abhishek Reddy <http://abhishek.geek.nz>
 ;;;;
 ;;;; This file includes portions of code from cl-ncurses, an ncurses
@@ -29,14 +30,14 @@
 ;;;; TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 ;;;; SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-(asdf:defsystem :cl-charms
-    :version (:read-file-form "version.lisp-expr")
-    :maintainer "Mark Fedurin <hitecnologys@gmail.com>"
-    :author "Abhishek Reddy <abhishek@abhishek.geek.nz>"
-    :description "CFFI bindings for curses."
-    :depends-on (:cffi :alexandria)
-    :serial t
-    :components
-    ((:module "src"
-      :components ((:file "package")
-                   (:file "charms")))))
+(defsystem :cl-charms
+  :version (:read-file-form "version.lisp-expr")
+  :maintainer "Mark Fedurin <hitecnologys@gmail.com>"
+  :author "Abhishek Reddy <abhishek@abhishek.geek.nz>"
+  :description "CFFI bindings for curses."
+  :depends-on (:cffi
+               :alexandria)
+  :serial t
+  :pathname "src/"
+  :components ((:file "package")
+               (:file "charms")))

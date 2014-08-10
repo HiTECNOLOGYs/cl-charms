@@ -36,7 +36,7 @@ Portability
 cl-charms in it's current state has been officially confirmed by me to fully
 work at least with configurations listed below:
 
-* SBCL 1.1.8 on Gentoo Linux (3.13.6-hardened-r3) x86-64
+* SBCL 1.1.8--1.2.1 on Gentoo Linux (3.13.6-hardened-r3--3.15.6-hardened) x86-64
 * CCL 1.9-r15769M on Gentoo Linux (3.13.6-hardened-r3) x86-64
 
 It may work on other implementations and system but I can not guarantee you

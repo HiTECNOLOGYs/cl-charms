@@ -1,5 +1,6 @@
 ;;;; This file is part of cl-charms, providing CFFI bindings to libcurses.
 ;;;;
+;;;; Copyright (c) 2014 Mark Fedurin <hitecnologys@gmail.com>
 ;;;; Copyright (c) 2010 Abhishek Reddy <http://abhishek.geek.nz>
 ;;;;
 ;;;; This file includes portions of code from cl-ncurses, an ncurses
@@ -41,7 +42,7 @@
   (:darwin (:or "libcurses.dylib" "libncurses.dylib"))
   (:unix (:or "libncurses.so.5" "libcurses"))
   (t (:default "libcurses")))
-   
+
 (use-foreign-library libcurses)
 
 
