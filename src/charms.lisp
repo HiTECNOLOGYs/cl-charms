@@ -61,7 +61,7 @@
              :collect `(export (defcfun ,name ,@body)))))
 
 (defmacro define-exported-constant (&body body)
-  `(export (define-constant ,@body)))
+  `(export (alexandria:define-constant ,@body)))
 
 
 ;; types
