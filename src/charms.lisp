@@ -826,7 +826,7 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
     :int
   (win window-ptr))
 
-#-(or win32 mswindows) ;; macro in pdcurses
+#-(or win32 mswindows)                  ; macro in pdcurses
 (define-exported-cfuns ("getch")
     :int)
 
@@ -845,17 +845,15 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
   (y :int)
   (x :int))
 
-(define-exported-cfuns (#-(or win32 mswindows)
-             "ungetch"
-           #+(or win32 mswindows)
-           "PDC_ungetch"
-           "has_key")
+(define-exported-cfuns (#-(or win32 mswindows) "ungetch"
+                        #+(or win32 mswindows) "PDC_ungetch"
+                        "has_key")
     :int
   (ch :int))
 
 #+(or win32 mswindows)
 (defun ungetch (ch)
-  (PDC_ungetch ch))
+  (PDC-ungetch ch))
 
 
 ;; getstr
