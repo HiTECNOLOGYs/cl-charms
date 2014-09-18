@@ -59,10 +59,15 @@
    The resulting function names are exported from the current package."
   `(progn
      ,@(loop :for name :in names
-             :collect `(export (cffi:defcfun ,name ,@body)))))
+             :for lisp-name := (cffi:translate-name-from-foreign name *package*)
+             :collect `(cffi:defcfun ,name ,@body)
+             :collect `(export ',lisp-name))))
 
-(defmacro define-exported-constant (&body body)
-  `(export (alexandria:define-constant ,@body)))
+(defmacro define-exported-constant (name value)
+  (check-type name symbol)
+  `(progn
+     (alexandria:define-constant ,name ,value)
+     (export ',name)))
 
 
 ;; types
