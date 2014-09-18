@@ -30,13 +30,13 @@
 ;;;; TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 ;;;; SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-(defsystem :cl-charms
+(asdf:defsystem #:cl-charms
   :version (:read-file-form "version.lisp-expr")
   :maintainer "Mark Fedurin <hitecnologys@gmail.com>"
   :author "Abhishek Reddy <abhishek@abhishek.geek.nz>"
   :description "CFFI bindings for curses."
-  :depends-on (:cffi
-               :alexandria)
+  :depends-on (#:cffi
+               #:alexandria)
   :serial t
   :pathname "src/"
   :components ((:file "package")
