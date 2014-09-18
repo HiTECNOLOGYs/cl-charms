@@ -712,31 +712,39 @@
 
 ; C Prototype: int get_wch(wint_t *wch);
 #+sb-unicode
-(cffi:defcfun (c-get-wch "get_wch") :int (target (:pointer :unsigned-int)))
+(cffi:defcfun (c-get-wch "get_wch")
+    :int
+  (target (:pointer :unsigned-int)))
+
 #+sb-unicode
-(export (defun get-wch ()
-          "Returns the character in the main value and C-function's return code in second
+(progn
+  (export 'get-wch)
+  (defun get-wch ()
+    "Returns the character in the main value and C-function's return code in second
 value. Replaces primary value (which would be garbage) with :ERROR if C-function returned ERR"
-          (let ((ch (cffi:foreign-alloc :unsigned-int)))
-            (let ((result (c-get-wch ch)))
-              (cond ((eql result ERR)
-                     (values :error ERR))
-                    (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
+    (let ((ch (cffi:foreign-alloc :unsigned-int)))
+      (let ((result (c-get-wch ch)))
+        (cond ((eql result ERR)
+               (values :error ERR))
+              (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
 ; C Prototype: int wget_wch(WINDOW *win, wint_t *wch);
 #+sb-unicode
 (cffi:defcfun (c-wget-wch "wget_wch") :int
   (win window-ptr)
   (target (:pointer :unsigned-int)))
+
 #+sb-unicode
-(export (defun wget-wch (win)
-          "Returns the character in the main value and C-function's return code in second
+(progn
+  (export 'wget-wch)
+  (defun wget-wch (win)
+    "Returns the character in the main value and C-function's return code in second
 value. Replaces primary value (which would be garbage) with :ERROR if C-function returned ERR"
-          (let ((ch (cffi:foreign-alloc :unsigned-int)))
-            (let ((result (c-wget-wch win ch)))
-              (cond ((eql result ERR)
-                     (values :error ERR))
-                    (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
+    (let ((ch (cffi:foreign-alloc :unsigned-int)))
+      (let ((result (c-wget-wch win ch)))
+        (cond ((eql result ERR)
+               (values :error ERR))
+              (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
 ; C Prototype: int mvget_wch(int y, int x, wint_t *wch);
 #+sb-unicode
@@ -744,15 +752,18 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
   (y :int)
   (x :int)
   (target (:pointer wchar)))
+
 #+sb-unicode
-(export (defun mvget-wch (y x)
-          "Returns the character in the main value and C-function's return code in second
+(progn
+  (export 'mvget-wch)
+  (defun mvget-wch (y x)
+    "Returns the character in the main value and C-function's return code in second
 value. Replaces primary value (which would be garbage) with :ERROR if C-function returned ERR"
-          (let ((ch (cffi:foreign-alloc :unsigned-int)))
-            (let ((result (c-mvget-wch y x ch)))
-              (cond ((eql result ERR)
-                     (values :error ERR))
-                    (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
+    (let ((ch (cffi:foreign-alloc :unsigned-int)))
+      (let ((result (c-mvget-wch y x ch)))
+        (cond ((eql result ERR)
+               (values :error ERR))
+              (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
 ; C Prototype: int mvwget_wch(WINDOW *win, int y, int x, wint_t *wch);
 #+sb-unicode
@@ -761,15 +772,18 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
   (y :int)
   (x :int)
   (target (:pointer :unsigned-int)))
+
 #+sb-unicode
-(export (defun mvwget-wch (win y x)
-          "Returns the character in the main value and C-function's return code in second
+(progn
+  (export 'mvwget-wch)
+  (defun mvwget-wch (win y x)
+    "Returns the character in the main value and C-function's return code in second
 value. Replaces primary value (which would be garbage) with :ERROR if C-function returned ERR"
-          (let ((ch (cffi:foreign-alloc :unsigned-int)))
-            (let ((result (c-mvwget-wch win y x ch)))
-              (cond ((eql result ERR)
-                     (values :error ERR))
-                    (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
+    (let ((ch (cffi:foreign-alloc :unsigned-int)))
+      (let ((result (c-mvwget-wch win y x ch)))
+        (cond ((eql result ERR)
+               (values :error ERR))
+              (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
 ; C Prototype: int unget_wch(const wchar_t wch);
 #+sb-unicode
