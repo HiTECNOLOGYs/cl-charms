@@ -473,20 +473,20 @@
 
 ;; constants
 ; Predefined colors
-(define-exported-constant COLOR_BLACK 0)
-(define-exported-constant COLOR_RED 1)
-(define-exported-constant COLOR_GREEN 2)
-(define-exported-constant COLOR_YELLOW 3)
-(define-exported-constant COLOR_BLUE 4)
+(define-exported-constant COLOR_BLACK   0)
+(define-exported-constant COLOR_RED     1)
+(define-exported-constant COLOR_GREEN   2)
+(define-exported-constant COLOR_YELLOW  3)
+(define-exported-constant COLOR_BLUE    4)
 (define-exported-constant COLOR_MAGENTA 5)
-(define-exported-constant COLOR_CYAN 6)
-(define-exported-constant COLOR_WHITE 7)
+(define-exported-constant COLOR_CYAN    6)
+(define-exported-constant COLOR_WHITE   7)
 
 ; Some basic general values
-(define-exported-constant TRUE 1)
-(define-exported-constant FALSE 0)
-(define-exported-constant ERR -1)
-(define-exported-constant OK 0)
+(define-exported-constant TRUE   1)
+(define-exported-constant FALSE  0)
+(define-exported-constant ERR   -1)
+(define-exported-constant OK     0)
 
 ; Keyboard keys, events and stuff
 (define-exported-constant KEY_BREAK       #o401)
