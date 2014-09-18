@@ -53,14 +53,14 @@
 
 
 ;; Based on `def' from cl-ncurses
-(defmacro define-exported-cfuns (names &body body)
+(defmacro define-exported-cfuns (names return-type &body arguments)
   "Define libcurses functions using cffi:defcfun.  If given multiple names,
    define each as a distinct C function but otherwise with the same signature.
    The resulting function names are exported from the current package."
   `(progn
      ,@(loop :for name :in names
              :for lisp-name := (cffi:translate-name-from-foreign name *package*)
-             :collect `(cffi:defcfun ,name ,@body)
+             :collect `(cffi:defcfun ,name ,return-type ,@arguments)
              :collect `(export ',lisp-name))))
 
 (defmacro define-exported-constant (name value)
