@@ -34,7 +34,8 @@
 
 #+sb-unicode
 (define-foreign-library libcurses
-    (:unix "libncursesw.so.5")
+  (:darwin (:or "libncurses.dylib" "libcurses.dylib"))
+  (:unix "libncursesw.so.5")
   (t (:default "libcurses")))
 
 #-sb-unicode
