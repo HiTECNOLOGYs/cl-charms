@@ -33,17 +33,17 @@
 (cl:in-package :cl-charms)
 
 #+sb-unicode
-(define-foreign-library libcurses
+(cffi:define-foreign-library libcurses
     (:unix "libncursesw.so.5")
   (t (:default "libcurses")))
 
 #-sb-unicode
-(define-foreign-library libcurses
+(cffi:define-foreign-library libcurses
   (:darwin (:or "libcurses.dylib" "libncurses.dylib"))
   (:unix (:or "libncurses.so.5" "libcurses"))
   (t (:default "libcurses")))
 
-(use-foreign-library libcurses)
+(cffi:use-foreign-library libcurses)
 
 
 ;; The following definitions are largely direct translations of UFFI
@@ -58,21 +58,21 @@
    The resulting function names are exported from the current package."
   `(progn
      ,@(loop :for name :in names
-             :collect `(export (defcfun ,name ,@body)))))
+             :collect `(export (cffi:defcfun ,name ,@body)))))
 
 (defmacro define-exported-constant (&body body)
-  `(export (define-constant ,@body)))
+  `(export (alexandria:define-constant ,@body)))
 
 
 ;; types
-(defctype bool :int)
-(defctype char-ptr :pointer)
-(defctype chtype :int)
-(defctype file-ptr :pointer)
-(defctype screen-ptr :pointer)
-(defctype window-ptr :pointer)
+(cffi:defctype bool :int)
+(cffi:defctype char-ptr :pointer)
+(cffi:defctype chtype :int)
+(cffi:defctype file-ptr :pointer)
+(cffi:defctype screen-ptr :pointer)
+(cffi:defctype window-ptr :pointer)
 #+sb-unicode
-(defctype wchar :unsigned-short) ; from ncurses.h
+(cffi:defctype wchar :unsigned-short) ; from ncurses.h
 
 
 ;; add_wch
@@ -493,8 +493,11 @@
 (define-exported-constant KEY_HOME        406)
 (define-exported-constant KEY_BACKSPACE   407)
 (define-exported-constant KEY_F0          410)
+
 (export 'key_fn)
-(defun                    key_fn (n)      (+ KEY_F0 n))
+(defun  key_fn (n)
+  (+ KEY_F0 n))
+
 (define-exported-constant KEY_DL          510)
 (define-exported-constant KEY_IL          511)
 (define-exported-constant KEY_DC          512)
@@ -703,35 +706,35 @@
 
 ; C Prototype: int get_wch(wint_t *wch);
 #+sb-unicode
-(defcfun (c-get-wch "get_wch") :int (target (:pointer :unsigned-int)))
+(cffi:defcfun (c-get-wch "get_wch") :int (target (:pointer :unsigned-int)))
 #+sb-unicode
 (export (defun get-wch ()
           "Returns the character in the main value and C-function's return code in second
 value. Replaces primary value (which would be garbage) with :ERROR if C-function returned ERR"
-          (let ((ch (foreign-alloc :unsigned-int)))
+          (let ((ch (cffi:foreign-alloc :unsigned-int)))
             (let ((result (c-get-wch ch)))
               (cond ((eql result ERR)
                      (values :error ERR))
-                    (t (values (mem-ref ch :unsigned-int) result)))))))
+                    (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
 ; C Prototype: int wget_wch(WINDOW *win, wint_t *wch);
 #+sb-unicode
-(defcfun (c-wget-wch "wget_wch") :int
+(cffi:defcfun (c-wget-wch "wget_wch") :int
   (win window-ptr)
   (target (:pointer :unsigned-int)))
 #+sb-unicode
 (export (defun wget-wch (win)
           "Returns the character in the main value and C-function's return code in second
 value. Replaces primary value (which would be garbage) with :ERROR if C-function returned ERR"
-          (let ((ch (foreign-alloc :unsigned-int)))
+          (let ((ch (cffi:foreign-alloc :unsigned-int)))
             (let ((result (c-wget-wch win ch)))
               (cond ((eql result ERR)
                      (values :error ERR))
-                    (t (values (mem-ref ch :unsigned-int) result)))))))
+                    (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
 ; C Prototype: int mvget_wch(int y, int x, wint_t *wch);
 #+sb-unicode
-(defcfun (c-mvget-wch "mvget_wch") :int
+(cffi:defcfun (c-mvget-wch "mvget_wch") :int
   (y :int)
   (x :int)
   (target (:pointer wchar)))
@@ -739,15 +742,15 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 (export (defun mvget-wch (y x)
           "Returns the character in the main value and C-function's return code in second
 value. Replaces primary value (which would be garbage) with :ERROR if C-function returned ERR"
-          (let ((ch (foreign-alloc :unsigned-int)))
+          (let ((ch (cffi:foreign-alloc :unsigned-int)))
             (let ((result (c-mvget-wch y x ch)))
               (cond ((eql result ERR)
                      (values :error ERR))
-                    (t (values (mem-ref ch :unsigned-int) result)))))))
+                    (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
 ; C Prototype: int mvwget_wch(WINDOW *win, int y, int x, wint_t *wch);
 #+sb-unicode
-(defcfun (c-mvwget-wch "mvwget_wch") :int
+(cffi:defcfun (c-mvwget-wch "mvwget_wch") :int
   (win window-ptr)
   (y :int)
   (x :int)
@@ -756,11 +759,11 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 (export (defun mvwget-wch (win y x)
           "Returns the character in the main value and C-function's return code in second
 value. Replaces primary value (which would be garbage) with :ERROR if C-function returned ERR"
-          (let ((ch (foreign-alloc :unsigned-int)))
+          (let ((ch (cffi:foreign-alloc :unsigned-int)))
             (let ((result (c-mvwget-wch win y x ch)))
               (cond ((eql result ERR)
                      (values :error ERR))
-                    (t (values (mem-ref ch :unsigned-int) result)))))))
+                    (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
 ; C Prototype: int unget_wch(const wchar_t wch);
 #+sb-unicode
@@ -887,7 +890,7 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 
 ;; getyx
 (define-exported-cfuns ("getcurx" "getcury" "getbegx" "getbegy"
-           "getmaxx" "getmaxy" "getparx" "getpary")
+                        "getmaxx" "getmaxy" "getparx" "getpary")
     :int
   (win window-ptr))
 
@@ -1197,7 +1200,7 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 
 ;; kernel
 (define-exported-cfuns ("def_prog_mode" "def_shell_mode" "reset_prog_mode"
-           "reset_shell_mode" "resetty" "savetty")
+                        "reset_shell_mode" "resetty" "savetty")
     :int)
 
 ;; Something about getsyx/setsyx and ripoffline.  Definitions look either
@@ -1602,17 +1605,17 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 (export '(*COLORS* *COLOR-PAIRS* *LINES* *COLS* *TABSIZE* 
 	  *ECSDELAY* *STDSCR* *CURSCR* *NEWSCR*))
 
-(defcvar ("COLORS" *COLORS* :library libcurses) :int)
-(defcvar ("COLOR_PATHS" *COLOR-PATHS* :library libcurses) :int)
+(cffi:defcvar ("COLORS" *COLORS* :library libcurses) :int)
+(cffi:defcvar ("COLOR_PATHS" *COLOR-PATHS* :library libcurses) :int)
 
-(defcvar ("LINES" *LINES* :library libcurses) :int)
-(defcvar ("COLS" *COLS* :library libcurses) :int)
-(defcvar ("TABSIZE" *TABSIZE* :library libcurses) :int)
-(defcvar ("ESCDELAY" *ESCDELAY* :library libcurses) :int)
+(cffi:defcvar ("LINES" *LINES* :library libcurses) :int)
+(cffi:defcvar ("COLS" *COLS* :library libcurses) :int)
+(cffi:defcvar ("TABSIZE" *TABSIZE* :library libcurses) :int)
+(cffi:defcvar ("ESCDELAY" *ESCDELAY* :library libcurses) :int)
 
-(defcvar ("stdscr" *STDSCR* :library libcurses) window-ptr)
-(defcvar ("curscr" *CURSCR* :library libcurses) window-ptr)
-(defcvar ("newscr" *NEWSCR* :library libcurses) window-ptr)
+(cffi:defcvar ("stdscr" *STDSCR* :library libcurses) window-ptr)
+(cffi:defcvar ("curscr" *CURSCR* :library libcurses) window-ptr)
+(cffi:defcvar ("newscr" *NEWSCR* :library libcurses) window-ptr)
 
 
 ;; window

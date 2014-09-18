@@ -30,6 +30,6 @@
 ;;;; TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 ;;;; SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-(cl:defpackage :cl-charms
-  (:use :common-lisp :cffi :alexandria)
-  (:nicknames :charms))
+(cl:defpackage #:cl-charms
+  (:use #:cl)
+  (:nicknames #:charms))
