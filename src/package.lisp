@@ -31,5 +31,5 @@
 ;;;; SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 (cl:defpackage #:cl-charms
-  (:use #:cl #:cffi)
+  (:use #:cl)
   (:nicknames #:charms))
