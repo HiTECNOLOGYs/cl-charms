@@ -592,7 +592,6 @@
 ; A_ attributes.                                                              ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-exported-constant WA_ATTRIBUTES #xffffff00)
-(define-exported-constant WA_ATTRIBUTES #xffffff00)
 (define-exported-constant WA_NORMAL #x00000000)
 (define-exported-constant WA_STANDOUT #x00010000)
 (define-exported-constant WA_UNDERLINE #x00020000)
@@ -610,7 +609,6 @@
 (define-exported-constant WA_TOP #x20000000) ;XSI Curses attr -- not yet used 
 (define-exported-constant WA_VERTICAL #x40000000) ;XSI Curses attr -- not yet used 
 
-(define-exported-constant A_ATTRIBUTES #xffffff00)
 (define-exported-constant A_ATTRIBUTES #xffffff00)
 (define-exported-constant A_NORMAL #x00000000)
 (define-exported-constant A_STANDOUT #x00010000)
