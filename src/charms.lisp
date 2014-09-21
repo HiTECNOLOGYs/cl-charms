@@ -1287,7 +1287,7 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
   (y :int)
   (x :int))
 
-(define-exported-cfuns ("clearok" "idlok" "leavok" "scrollok")
+(define-exported-cfuns ("clearok" "idlok" "leaveok" "scrollok")
     :int
   (win window-ptr)
   (bf bool))
@@ -1308,7 +1308,7 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
   (top :int)
   (bot :int))
 
-(define-exported-cfuns ("nl nonl")
+(define-exported-cfuns ("nl" "nonl")
     :int)
 
 
@@ -1484,7 +1484,7 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
     :string
   (labnum :int))
 
-(define-exported-cfuns ("slk_atttron" "slk_attroff" "slt_attrset")
+(define-exported-cfuns ("slk_attron" "slk_attroff" "slk_attrset")
     :int
   (attrs chtype))
 
@@ -1564,10 +1564,6 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
     :int
   (win window-ptr))
 
-(define-exported-cfuns ("is_untouched")
-    bool
-  (win window-ptr))
-
 (define-exported-cfuns ("touchline")
     :int
   (win window-ptr)
@@ -1580,6 +1576,10 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
   (y :int)
   (n :int)
   (changed :int))
+
+(define-exported-cfuns ("is_wintouched")
+    bool
+  (win window-ptr))
 
 (define-exported-cfuns ("is_linetouched")
     bool
