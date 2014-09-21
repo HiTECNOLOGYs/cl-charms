@@ -43,7 +43,7 @@ work at least with configurations listed below:
 * SBCL 1.1.8--1.2.1 on Gentoo Linux (3.13.6-hardened-r3--3.15.6-hardened) x86-64
 * SBCL 1.2.3.15-4704124 on OS X 10.10 (Yosemite) x86-64
 * CCL 1.9-r15769M on Gentoo Linux (3.13.6-hardened-r3) x86-64
-* CCL 1.9-r15759 on OS X 10.10 (Yosemity) x86-64
+* CCL 1.9-r15759 on OS X 10.10 (Yosemite) x86-64
 
 It may work on other implementations and system but there's no
 guarantee. More testing is really appreciated.
