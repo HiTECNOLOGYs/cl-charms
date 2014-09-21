@@ -24,4 +24,41 @@
 (defpackage #:cl-charms
   (:documentation "Package containing a high-level interface to ncurses.")
   (:use #:cl)
-  (:nicknames #:charms))
+  (:nicknames #:charms)
+  
+  ;; windows.lisp
+  (:export
+   #:window                             ; CLASS
+   #:*standard-window*                  ; SPECIAL VARIABLE
+   #:standard-window                    ; FUNCTION
+   #:make-window                        ; FUNCTION
+   #:destroy-window                     ; FUNCTION
+   #:copy-window                        ; FUNCTION
+   #:window-dimensions                  ; FUNCTION
+   #:refresh-window                     ; FUNCTION
+   )
+  
+  ;; cursor.lisp
+  (:export
+   #:cursor-position                    ; FUNCTION
+   #:move-cursor                        ; FUNCTION
+   #:with-restored-cursor               ; MACRO
+   #:move-cursor-up                     ; FUNCTION
+   #:move-cursor-down                   ; FUNCTION
+   #:move-cursor-right                  ; FUNCTION
+   #:move-cursor-left                   ; FUNCTION
+   )
+  
+  ;; initialization.lisp
+  (:export
+   #:initialize                         ; FUNCTION
+   #:finalize                           ; FUNCTION
+   #:with-curses                        ; MACRO
+   #:enable-echoing                     ; FUNCTION
+   #:disable-echoing                    ; FUNCTION
+   #:enable-extra-keys                  ; FUNCTION
+   #:disable-extra-keys                 ; FUNCTION
+   #:enable-raw-input                   ; FUNCTION
+   #:disable-raw-input                  ; FUNCTION
+   )
+  )

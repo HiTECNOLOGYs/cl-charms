@@ -33,4 +33,9 @@
 (defpackage #:cl-charms/low-level
   (:documentation "Package containing the one-to-one bindings to the ncurses library.")
   (:use #:cl)
-  (:nicknames #:charms/ll))
+  (:nicknames #:charms/ll)
+  (:export
+   #:window-ptr                         ; CFFI type
+   #:screen-ptr                         ; CFFI type
+   )
+  )

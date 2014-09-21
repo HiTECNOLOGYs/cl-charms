@@ -46,4 +46,8 @@
                              (:file "curses-bindings")))
                (:module "high-level"
                 :serial t
-                :components ((:file "package")))))
+                :components ((:file "package")
+                             (:file "utilities")
+                             (:file "windows")
+                             (:file "cursor")
+                             (:file "initialization")))))
