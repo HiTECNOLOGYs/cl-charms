@@ -33,6 +33,19 @@ The software is released under an MIT-style license. See the file
 >    another man's.
           -- R.W. Emerson on originality.
 
+Version
+=======
+
+Versioning roughly follows the scheme described in
+[Semantic Versioning](http://semver.org/). Only "releases" will be
+versioned.
+
+Since we are still pre-`1.0.0`, the minor version will indicate API
+breakage. Despite being pre-`1.0.0`, what exists in the low-level
+interface as of now is quite usable for ASCII usage. We consider this
+"beta" quality. The high-level functionality is considered "alpha"
+quality.
+
 
 Portability
 ===========
