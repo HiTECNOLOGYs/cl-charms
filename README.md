@@ -16,7 +16,7 @@ probably feature-equivalent to `cl-ncurses` and compatible with client
 code. In the future, however, `cl-charms` may break compatibility with
 `cl-ncurses`.
 
-`cl-charms` has been developed by it's original author, Abhishek Reddy
+`cl-charms` has been developed by its original author, Abhishek Reddy
 (abhishek@abhishek.geek.nz), since beginning of October 2010 for quite
 some time, then abandoned for unknown reason. After that, in 2014,
 Mark Fedurin (hitecnologys@gmail.com) took responsibility for keeping
@@ -37,8 +37,8 @@ The software is released under an MIT-style license. See the file
 Portability
 ===========
 
-`cl-charms` in it's current state has been officially confirmed by me to fully
-work at least with configurations listed below:
+`cl-charms` in its current state has been officially confirmed by me
+to fully work at least with configurations listed below:
 
 * SBCL 1.1.8--1.2.1 on Gentoo Linux (3.13.6-hardened-r3--3.15.6-hardened) x86-64
 * SBCL 1.2.3.15-4704124 on OS X 10.10 (Yosemite) x86-64
@@ -81,8 +81,10 @@ one-to-one equivalent to standard curses functions.
 The high-level library is contained within the package `cl-charms`,
 nicknamed `charms`.
 
-[TODO]
+For examples, see the `examples` directory. Currently, it has the
+following examples:
 
+* `timer.lisp`: a minimal, simple timer/stopwatch program.
 
 
 Testing
