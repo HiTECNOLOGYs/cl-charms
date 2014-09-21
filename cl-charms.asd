@@ -35,6 +35,7 @@
   :maintainer "Mark Fedurin <hitecnologys@gmail.com>"
   :author "Abhishek Reddy <abhishek@abhishek.geek.nz>"
   :description "CFFI bindings for curses."
+  :license "MIT License (See COPYING)"
   :depends-on (#:cffi
                #:alexandria)
   :serial t
