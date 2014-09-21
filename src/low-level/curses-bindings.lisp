@@ -30,7 +30,7 @@
 ;;;; TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 ;;;; SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-(cl:in-package :cl-charms)
+(in-package #:cl-charms/low-level)
 
 #+sb-unicode
 (cffi:define-foreign-library libcurses

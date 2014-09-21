@@ -40,5 +40,8 @@
                #:alexandria)
   :serial t
   :pathname "src/"
-  :components ((:file "package")
-               (:file "charms")))
+  :components ((:module "low-level"
+                :serial t
+                :components ((:file "package")
+                             (:file "curses-bindings")))))
+
