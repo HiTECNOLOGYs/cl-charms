@@ -8,7 +8,8 @@
 ;;; interface. Run MAIN and press the space bar to start, stop, and
 ;;; clear the timer. Press 'q' to quit.
 
-;;; Timer state
+
+;;; Timer state & manipulation
 
 (defvar *start* nil)
 (defvar *stop* nil)
@@ -32,6 +33,8 @@
              *start*)
           internal-time-units-per-second)))
 
+;;; Rendering function
+
 (defun paint-time ()
   "Paint the elapsed time to the center of the screen."
   (multiple-value-bind (width height)
@@ -45,6 +48,8 @@
                                     printed-time
                                     (- (floor width 2) length/2)
                                     (floor height 2)))))
+
+;;; Main driver
 
 (defun main ()
   "Start the timer program."
