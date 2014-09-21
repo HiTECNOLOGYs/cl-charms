@@ -13,3 +13,7 @@
   "Visually flash the console."
   (check-status (charms/ll:flash))
   t)
+
+(defun curses-version ()
+  "Return a string representing the version of the underlying curses implementation."
+  (charms/ll:curses-version))

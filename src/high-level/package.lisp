@@ -87,5 +87,6 @@
   (:export
    #:beep-console
    #:flash-console
+   #:curses-version
    )
   )
