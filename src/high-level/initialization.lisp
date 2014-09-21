@@ -5,7 +5,7 @@
 (in-package #:cl-charms)
 
 (defun initialize ()
-  "Initialize ncurses and the terminal for drawing.
+  "Initialize ncurses and the terminal for drawing. Return the standard window.
 
 This function must be called before using curses functions. Consider using the macro `CHARMS:WITH-CURSES' to ensure this.
 "
@@ -24,7 +24,11 @@ This function must be called before exiting. Consider using the macro `CHARMS:WI
   t)
 
 (defmacro with-curses (options &body body)
-  "Execute the body BODY, ensuring that "
+  "Execute the body BODY, ensuring that curses is properly initialized and finalized.
+
+Within BODY, the special variable *STANDARD-WINDOW* will be bound, which refers to the global window.
+
+Currently, there are no OPTIONS."
   (assert (null options)
           (options)
           "Currently no options to WITH-CURSES-INITIALIZED are supported.")
