@@ -43,5 +43,7 @@
   :components ((:module "low-level"
                 :serial t
                 :components ((:file "package")
-                             (:file "curses-bindings")))))
-
+                             (:file "curses-bindings")))
+               (:module "high-level"
+                :serial t
+                :components ((:file "package")))))
