@@ -85,7 +85,7 @@ For examples, see the `examples` directory. Currently, it has the
 following examples:
 
 * `timer.lisp`: a minimal, simple timer/stopwatch program.
-
+* `paint.lisp`: a simple ASCII art drawing program.
 
 Testing
 =======
