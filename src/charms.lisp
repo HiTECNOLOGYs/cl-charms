@@ -82,25 +82,29 @@
 
 
 ;; add_wch
-; TODO
-; C Prototype: int add_wch( const cchar_t *wch );
-; C Prototype: int wadd_wch( WINDOW *win, const cchar_t *wch );
-; C Prototype: int mvadd_wch( int y, int x, const cchar_t *wch );
-; C Prototype: int mvwadd_wch( WINDOW *win, int y, int x, const cchar_t *wch );
-; C Prototype: int echo_wchar( const cchar_t *wch );
-; C Prototype: int wecho_wchar( WINDOW *win, const cchar_t *wch );
+
+;; TODO:
+;;
+;; C Prototype: int add_wch( const cchar_t *wch );
+;; C Prototype: int wadd_wch( WINDOW *win, const cchar_t *wch );
+;; C Prototype: int mvadd_wch( int y, int x, const cchar_t *wch );
+;; C Prototype: int mvwadd_wch( WINDOW *win, int y, int x, const cchar_t *wch );
+;; C Prototype: int echo_wchar( const cchar_t *wch );
+;; C Prototype: int wecho_wchar( WINDOW *win, const cchar_t *wch );
 
 
 ;; add_wchstr
-; TODO
-; C Prototype: int add_wchstr(const cchar_t *wchstr);
-; C Prototype: int add_wchnstr(const cchar_t *wchstr, int n);
-; C Prototype: int wadd_wchstr(WINDOW * win, const cchar_t *wchstr);
-; C Prototype: int wadd_wchnstr(WINDOW * win, const cchar_t *wchstr, int n);
-; C Prototype: int mvadd_wchstr(int y, int x, const cchar_t *wchstr);
-; C Prototype: int mvadd_wchnstr(int y, int x, const cchar_t *wchstr, int n);
-; C Prototype: int mvwadd_wchstr(WINDOW *win, int y, int x, const cchar_t *wchstr);
-; C Prototype: int mvwadd_wchnstr(WINDOW *win, int y, int x, const cchar_t *wchstr, int n);
+
+;; TODO:
+;;
+;; C Prototype: int add_wchstr(const cchar_t *wchstr);
+;; C Prototype: int add_wchnstr(const cchar_t *wchstr, int n);
+;; C Prototype: int wadd_wchstr(WINDOW * win, const cchar_t *wchstr);
+;; C Prototype: int wadd_wchnstr(WINDOW * win, const cchar_t *wchstr, int n);
+;; C Prototype: int mvadd_wchstr(int y, int x, const cchar_t *wchstr);
+;; C Prototype: int mvadd_wchnstr(int y, int x, const cchar_t *wchstr, int n);
+;; C Prototype: int mvwadd_wchstr(WINDOW *win, int y, int x, const cchar_t *wchstr);
+;; C Prototype: int mvwadd_wchnstr(WINDOW *win, int y, int x, const cchar_t *wchstr, int n);
 
 
 ;; addch
@@ -228,15 +232,17 @@
 
 
 ;; addwstr
-; TODO
-; C Prototype: int addwstr(const wchar_t *wstr);
-; C Prototype: int addnwstr(const wchar_t *wstr, int n);
-; C Prototype: int waddwstr(WINDOW *win, const wchar_t *wstr);
-; C Prototype: int waddnwstr(WINDOW *win, const wchar_t *wstr, int n);
-; C Prototype: int mvaddwstr(int y, int x, const wchar_t *wstr);
-; C Prototype: int mvaddnwstr(int y, int x, const wchar_t *wstr, int n);
-; C Prototype: int mvwaddwstr(WINDOW *win, int y, int x, const wchar_t *wstr);
-; C Prototype: int mvwaddnwstr(WINDOW *win, int y, int x, const wchar_t *wstr, int n);
+
+;; TODO:
+;;
+;; C Prototype: int addwstr(const wchar_t *wstr);
+;; C Prototype: int addnwstr(const wchar_t *wstr, int n);
+;; C Prototype: int waddwstr(WINDOW *win, const wchar_t *wstr);
+;; C Prototype: int waddnwstr(WINDOW *win, const wchar_t *wstr, int n);
+;; C Prototype: int mvaddwstr(int y, int x, const wchar_t *wstr);
+;; C Prototype: int mvaddnwstr(int y, int x, const wchar_t *wstr, int n);
+;; C Prototype: int mvwaddwstr(WINDOW *win, int y, int x, const wchar_t *wstr);
+;; C Prototype: int mvwaddnwstr(WINDOW *win, int y, int x, const wchar_t *wstr, int n);
 
 
 ;; attr
@@ -266,20 +272,22 @@
 (define-exported-cfuns ("wstandend" "wstandout")
     :int)
 
-; TODO
-; We need to define a attr_t structure type......
-; C Prototype: int attr_get(attr_t *attrs, short *pair, void *opts);
-; C Prototype: int wattr_get(WINDOW *win, attr_t *attrs, short *pair, void *opts);
-; C Prototype: int attr_off(attr_t attrs, void *opts);
-; C Prototype: int wattr_off(WINDOW *win, attr_t attrs, void *opts);
-; C Prototype: int attr_on(attr_t attrs, void *opts);
-; C Prototype: int wattr_on(WINDOW *win, attr_t attrs, void *opts);
-; C Prototype: int attr_set(attr_t attrs, short pair, void *opts);
-; C Prototype: int wattr_set(WINDOW *win, attr_t attrs, short pair, void *opts);
-; C Prototype: int chgat(int n, attr_t attr, short color, const void *opts)
-; C Prototype: int wchgat(WINDOW *win, int n, attr_t attr, short color, const void *opts)
-; C Prototype: int mvchgat(int y, int x, int n, attr_t attr, short color, const void *opts)
-; C Prototype: int mvwchgat(WINDOW *win, int y, int x, int n, attr_t attr, short color, const void *opts)
+;; TODO:
+;;
+;; We need to define a attr_t structure type......
+;;
+;; C Prototype: int attr_get(attr_t *attrs, short *pair, void *opts);
+;; C Prototype: int wattr_get(WINDOW *win, attr_t *attrs, short *pair, void *opts);
+;; C Prototype: int attr_off(attr_t attrs, void *opts);
+;; C Prototype: int wattr_off(WINDOW *win, attr_t attrs, void *opts);
+;; C Prototype: int attr_on(attr_t attrs, void *opts);
+;; C Prototype: int wattr_on(WINDOW *win, attr_t attrs, void *opts);
+;; C Prototype: int attr_set(attr_t attrs, short pair, void *opts);
+;; C Prototype: int wattr_set(WINDOW *win, attr_t attrs, short pair, void *opts);
+;; C Prototype: int chgat(int n, attr_t attr, short color, const void *opts)
+;; C Prototype: int wchgat(WINDOW *win, int n, attr_t attr, short color, const void *opts)
+;; C Prototype: int mvchgat(int y, int x, int n, attr_t attr, short color, const void *opts)
+;; C Prototype: int mvwchgat(WINDOW *win, int y, int x, int n, attr_t attr, short color, const void *opts)
 
 
 ;; beep
@@ -312,13 +320,15 @@
 
 
 ;; bkgrnd
-; TODO
-; C Prototype: int bkgrnd( const cchar_t *wch);
-; C Prototype: int wbkgrnd( WINDOW *win, const cchar_t *wch);
-; C Prototype: void bkgrndset(const cchar_t *wch );
-; C Prototype: void wbkgrndset(WINDOW *win, const cchar_t *wch);
-; C Prototype: int getbkgrnd(cchar_t *wch);
-; C Prototype: int wgetbkgrnd(WINDOW *win, cchar_t *wch);
+
+;; TODO:
+;;
+;; C Prototype: int bkgrnd( const cchar_t *wch);
+;; C Prototype: int wbkgrnd( WINDOW *win, const cchar_t *wch);
+;; C Prototype: void bkgrndset(const cchar_t *wch );
+;; C Prototype: void wbkgrndset(WINDOW *win, const cchar_t *wch);
+;; C Prototype: int getbkgrnd(cchar_t *wch);
+;; C Prototype: int wgetbkgrnd(WINDOW *win, cchar_t *wch);
 
 
 ;;
@@ -379,47 +389,49 @@
 
 
 ;; border_set
-; TODO
-; cchar_t * ???
-; C Prototype: int border_set(
-;	  const cchar_t *ls, const cchar_t *rs,
-;	  const cchar_t *ts, const cchar_t *bs,
-;         const cchar_t *tl, const cchar_t *tr,
-;	  const cchar_t *bl, const cchar_t *br );
-; C Prototype: int wborder_set(
-;	  WINDOW *win,
-;	  const cchar_t *ls, const cchar_t *rs,
-;	  const cchar_t *ts, const cchar_t *bs,
-;	  const cchar_t *tl, const cchar_t *tr,
-;	  const cchar_t *bl, const cchar_t *br);
-; C Prototype: int box_set(
-;	  WINDOW *win,
-;	  const cchar_t *verch,
-;	  const cchar_t *horch);
-; C Prototype: int hline_set(
-;	  const cchar_t *wch, int n);
-; C Prototype: int whline_set(
-;	  WINDOW *win,
-;	  const cchar_t *wch, int n);
-; C Prototype: int mvhline_set(
-;         int y, int x,
-;	  const cchar_t *wch, int n);
-; C Prototype: int mvwhline_set(
-;	  WINDOW *win,
-;         int y, int x,
-;	  const cchar_t *wch, int n);
-; C Prototype: int vline_set(
-;	  const cchar_t *wch, int n);
-; C Prototype: int wvline_set(
-;	  WINDOW *win,
-;	  const cchar_t *wch, int n);
-; C Prototype: int mvvline_set(
-;         int y, int x,
-;	  const cchar_t *wch, int n);
-; C Prototype: int mvwvline_set(
-;	  WINDOW *win,
-;         int y, int x,
-;	  const cchar_t *wch, int n);
+
+;; TODO:
+;;
+;; cchar_t * ???
+;; C Prototype: int border_set(
+;;	  const cchar_t *ls, const cchar_t *rs,
+;;	  const cchar_t *ts, const cchar_t *bs,
+;;        const cchar_t *tl, const cchar_t *tr,
+;;	  const cchar_t *bl, const cchar_t *br );
+;; C Prototype: int wborder_set(
+;;	  WINDOW *win,
+;;	  const cchar_t *ls, const cchar_t *rs,
+;;	  const cchar_t *ts, const cchar_t *bs,
+;;	  const cchar_t *tl, const cchar_t *tr,
+;;	  const cchar_t *bl, const cchar_t *br);
+;; C Prototype: int box_set(
+;;	  WINDOW *win,
+;;	  const cchar_t *verch,
+;;	  const cchar_t *horch);
+;; C Prototype: int hline_set(
+;;	  const cchar_t *wch, int n);
+;; C Prototype: int whline_set(
+;;	  WINDOW *win,
+;;	  const cchar_t *wch, int n);
+;; C Prototype: int mvhline_set(
+;;         int y, int x,
+;;	  const cchar_t *wch, int n);
+;; C Prototype: int mvwhline_set(
+;;	  WINDOW *win,
+;;         int y, int x,
+;;	  const cchar_t *wch, int n);
+;; C Prototype: int vline_set(
+;;	  const cchar_t *wch, int n);
+;; C Prototype: int wvline_set(
+;;	  WINDOW *win,
+;;	  const cchar_t *wch, int n);
+;; C Prototype: int mvvline_set(
+;;         int y, int x,
+;;	  const cchar_t *wch, int n);
+;; C Prototype: int mvwvline_set(
+;;	  WINDOW *win,
+;;         int y, int x,
+;;	  const cchar_t *wch, int n);
 
 
 ;; clear
@@ -439,7 +451,8 @@
 (define-exported-cfuns ("COLOR_PAIR")
     :int
   (pair :int))
-;;; Win32 TODO: implement defun based on macro in pdcurses' curses.h
+
+;; Win32 TODO: implement defun based on macro in pdcurses' curses.h
 
 (define-exported-cfuns ("init_pair")
     :int
@@ -472,7 +485,8 @@
 
 
 ;; constants
-; Predefined colors
+
+;; Predefined colors
 (define-exported-constant COLOR_BLACK   0)
 (define-exported-constant COLOR_RED     1)
 (define-exported-constant COLOR_GREEN   2)
@@ -482,13 +496,13 @@
 (define-exported-constant COLOR_CYAN    6)
 (define-exported-constant COLOR_WHITE   7)
 
-; Some basic general values
+;; Some basic general values
 (define-exported-constant TRUE   1)
 (define-exported-constant FALSE  0)
 (define-exported-constant ERR   -1)
 (define-exported-constant OK     0)
 
-; Keyboard keys, events and stuff
+;; Keyboard keys, events and stuff
 (define-exported-constant KEY_BREAK       #o401)
 (define-exported-constant KEY_SRESET      #o530)
 (define-exported-constant KEY_RESET       #o531)
@@ -708,7 +722,7 @@
 
 ;; get_wch
 
-; C Prototype: int get_wch(wint_t *wch);
+;; C Prototype: int get_wch(wint_t *wch);
 #+sb-unicode
 (cffi:defcfun (c-get-wch "get_wch")
     :int
@@ -726,7 +740,7 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
                (values :error ERR))
               (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
-; C Prototype: int wget_wch(WINDOW *win, wint_t *wch);
+;; C Prototype: int wget_wch(WINDOW *win, wint_t *wch);
 #+sb-unicode
 (cffi:defcfun (c-wget-wch "wget_wch") :int
   (win window-ptr)
@@ -744,7 +758,7 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
                (values :error ERR))
               (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
-; C Prototype: int mvget_wch(int y, int x, wint_t *wch);
+;; C Prototype: int mvget_wch(int y, int x, wint_t *wch);
 #+sb-unicode
 (cffi:defcfun (c-mvget-wch "mvget_wch") :int
   (y :int)
@@ -763,7 +777,7 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
                (values :error ERR))
               (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
-; C Prototype: int mvwget_wch(WINDOW *win, int y, int x, wint_t *wch);
+;; C Prototype: int mvwget_wch(WINDOW *win, int y, int x, wint_t *wch);
 #+sb-unicode
 (cffi:defcfun (c-mvwget-wch "mvwget_wch") :int
   (win window-ptr)
@@ -783,7 +797,7 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
                (values :error ERR))
               (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
-; C Prototype: int unget_wch(const wchar_t wch);
+;; C Prototype: int unget_wch(const wchar_t wch);
 #+sb-unicode
 (define-exported-cfuns ("unget_wch")
     :int
@@ -791,32 +805,36 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 
 
 ;; get_wstr
-; TODO
-; C Prototype: int get_wstr(wint_t *wstr);
-; C Prototype: int getn_wstr(wint_t *wstr, int n);
-; C Prototype: int wget_wstr(WINDOW *win, wint_t *wstr);
-; C Prototype: int wgetn_wstr(WINDOW *win, wint_t *wstr, int n);
-; C Prototype: int mvget_wstr(int y, int x, wint_t *wstr);
-; C Prototype: int mvgetn_wstr(int y, int x, wint_t *wstr, int n);
-; C Prototype: int mvwget_wstr(WINDOW *win, int y, int x, wint_t *wstr);
-; C Prototype: int mvwgetn_wstr(WINDOW *win, int y, int x, wint_t *wstr, int n);
+
+;; TODO:
+;;
+;; C Prototype: int get_wstr(wint_t *wstr);
+;; C Prototype: int getn_wstr(wint_t *wstr, int n);
+;; C Prototype: int wget_wstr(WINDOW *win, wint_t *wstr);
+;; C Prototype: int wgetn_wstr(WINDOW *win, wint_t *wstr, int n);
+;; C Prototype: int mvget_wstr(int y, int x, wint_t *wstr);
+;; C Prototype: int mvgetn_wstr(int y, int x, wint_t *wstr, int n);
+;; C Prototype: int mvwget_wstr(WINDOW *win, int y, int x, wint_t *wstr);
+;; C Prototype: int mvwgetn_wstr(WINDOW *win, int y, int x, wint_t *wstr, int n);
 
 
 ;; getcchar
-; TODO
-; C Prototype: int getcchar(
-;	       const cchar_t *wcval,
-;	       wchar_t *wch,
-;	       attr_t *attrs,
-;	       short *color_pair,
-;	       void *opts );
 
-; C Prototype: int setcchar(
-;	       cchar_t *wcval,
-;	       const wchar_t *wch,
-;	       const attr_t attrs,
-;	       short color_pair,
-;	       void *opts );
+;; TODO:
+;;
+;; C Prototype: int getcchar(
+;;	       const cchar_t *wcval,
+;;	       wchar_t *wch,
+;;	       attr_t *attrs,
+;;	       short *color_pair,
+;;	       void *opts );
+
+;; C Prototype: int setcchar(
+;;	       cchar_t *wcval,
+;;	       const wchar_t *wch,
+;;	       const attr_t attrs,
+;;	       short color_pair,
+;;	       void *opts );
 
 
 ;; getch
@@ -936,23 +954,27 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 
 
 ;; in_wch
-; TODO
-; C-prototype: int in_wch(cchar_t *wcval);
-; C-prototype: int mvin_wch(int y, int x, cchar_t *wcval);
-; C-prototype: int mvwin_wch(WINDOW *win, int y, int x, cchar_t *wcval);
-; C-prototype: int win_wch(WINDOW *win, cchar_t *wcval);
+
+;; TODO:
+;;
+;; C-prototype: int in_wch(cchar_t *wcval);
+;; C-prototype: int mvin_wch(int y, int x, cchar_t *wcval);
+;; C-prototype: int mvwin_wch(WINDOW *win, int y, int x, cchar_t *wcval);
+;; C-prototype: int win_wch(WINDOW *win, cchar_t *wcval);
 
 
 ;; in_wchstr
-; TODO
-; C-prototype: int in_wchstr(cchar_t *wchstr);
-; C-prototype: int in_wchnstr(cchar_t *wchstr, int n);
-; C-prototype: int win_wchstr(WINDOW *win, cchar_t *wchstr);
-; C-prototype: int win_wchnstr(WINDOW *win, cchar_t *wchstr, int n);
-; C-prototype: int mvin_wchstr(int y, int x, cchar_t *wchstr);
-; C-prototype: int mvin_wchnstr(int y, int x, cchar_t *wchstr, int n);
-; C-prototype: int mvwin_wchstr(WINDOW *win, int y, int x, cchar_t *wchstr);
-; C-prototype: int mvwin_wchnstr(WINDOW *win, int y, int x, cchar_t *wchstr, int n);
+
+;; TODO:
+;;
+;; C-prototype: int in_wchstr(cchar_t *wchstr);
+;; C-prototype: int in_wchnstr(cchar_t *wchstr, int n);
+;; C-prototype: int win_wchstr(WINDOW *win, cchar_t *wchstr);
+;; C-prototype: int win_wchnstr(WINDOW *win, cchar_t *wchstr, int n);
+;; C-prototype: int mvin_wchstr(int y, int x, cchar_t *wchstr);
+;; C-prototype: int mvin_wchnstr(int y, int x, cchar_t *wchstr, int n);
+;; C-prototype: int mvwin_wchstr(WINDOW *win, int y, int x, cchar_t *wchstr);
+;; C-prototype: int mvwin_wchnstr(WINDOW *win, int y, int x, cchar_t *wchstr, int n);
 
 
 ;; inch
@@ -1074,23 +1096,27 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 
 
 ;; ins_wch
-; TODO
-; C-prototype: int ins_wch(const cchar_t *wch);
-; C-prototype: int wins_wch(WINDOW *win, const cchar_t *wch);
-; C-prototype: int mvins_wch(int y, int x, const cchar_t *wch);
-; C-prototype: int mvwins_wch(WINDOW *win, int y, int x, const cchar_t *wch);
+
+;; TODO:
+;;
+;; C-prototype: int ins_wch(const cchar_t *wch);
+;; C-prototype: int wins_wch(WINDOW *win, const cchar_t *wch);
+;; C-prototype: int mvins_wch(int y, int x, const cchar_t *wch);
+;; C-prototype: int mvwins_wch(WINDOW *win, int y, int x, const cchar_t *wch);
 
 
 ;; ins_wstr
-; TODO
-; C-prototype: int ins_wstr(const wchar_t *wstr);
-; C-prototype: int ins_nwstr(const wchar_t *wstr, int n);
-; C-prototype: int wins_wstr(WINDOW *win, const wchar_t *wstr);
-; C-prototype: int wins_nwstr(WINDOW *win, const wchar_t *wstr, int n);
-; C-prototype: int mvins_wstr(int y, int x, const wchar_t *wstr);
-; C-prototype: int mvins_nwstr(int y, int x, const wchar_t *wstr, int n);
-; C-prototype: int mvwins_wstr(WINDOW *win, int y, int x, const wchar_t *wstr);
-; C-prototype: int mvwins_nwstr(WINDOW *win, int y, int x, const wchar_t *wstr, int n);
+
+;; TODO:
+;;
+;; C-prototype: int ins_wstr(const wchar_t *wstr);
+;; C-prototype: int ins_nwstr(const wchar_t *wstr, int n);
+;; C-prototype: int wins_wstr(WINDOW *win, const wchar_t *wstr);
+;; C-prototype: int wins_nwstr(WINDOW *win, const wchar_t *wstr, int n);
+;; C-prototype: int mvins_wstr(int y, int x, const wchar_t *wstr);
+;; C-prototype: int mvins_nwstr(int y, int x, const wchar_t *wstr, int n);
+;; C-prototype: int mvwins_wstr(WINDOW *win, int y, int x, const wchar_t *wstr);
+;; C-prototype: int mvwins_nwstr(WINDOW *win, int y, int x, const wchar_t *wstr, int n);
 
 
 ;; insch
@@ -1203,15 +1229,17 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 
 
 ;; inwstr
-; TODO
-; C-prototype: int inwstr(wchar_t *str);
-; C-prototype: int innwstr(wchar_t *str, int n);
-; C-prototype: int winwstr(WINDOW *win, wchar_t *str);
-; C-prototype: int winnwstr(WINDOW *win, wchar_t *str, int n);
-; C-prototype: int mvinwstr(int y, int x, wchar_t *str);
-; C-prototype: int mvinnwstr(int y, int x, wchar_t *str, int n);
-; C-prototype: int mvwinwstr(WINDOW *win, int y, int x, wchar_t *str);
-; C-prototype: int mvwinnwstr(WINDOW *win, int y, int x, wchar_t *str, int n);
+
+;; TODO:
+;;
+;; C-prototype: int inwstr(wchar_t *str);
+;; C-prototype: int innwstr(wchar_t *str, int n);
+;; C-prototype: int winwstr(WINDOW *win, wchar_t *str);
+;; C-prototype: int winnwstr(WINDOW *win, wchar_t *str, int n);
+;; C-prototype: int mvinwstr(int y, int x, wchar_t *str);
+;; C-prototype: int mvinnwstr(int y, int x, wchar_t *str, int n);
+;; C-prototype: int mvwinwstr(WINDOW *win, int y, int x, wchar_t *str);
+;; C-prototype: int mvwinnwstr(WINDOW *win, int y, int x, wchar_t *str, int n);
 
 
 ;; kernel
@@ -1219,6 +1247,8 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
                         "reset_shell_mode" "resetty" "savetty")
     :int)
 
+;; XXX:
+;;
 ;; Something about getsyx/setsyx and ripoffline.  Definitions look either
 ;; broken or missing in cl-ncurses.
 ;;   -- arbscht 2010-10-26
@@ -1249,30 +1279,33 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 
 
 ;; key_defined
-; TODO: wrap this function if the local C ncurses library supports EXTENSIONS.
-; C-prototype: int key_defined(const char *definition);
-;(def :int ((definition :cstring))
-;     "key_defined")
+
+;; TODO: wrap this function if the local C ncurses library supports EXTENSIONS.
+;; C-prototype: int key_defined(const char *definition);
+;;(def :int ((definition :cstring))
+;;     "key_defined")
 
 
 ;; mouse
-; TODO
-; C-prototype: typedef unsigned long mmask_t;
 
-; C-prototype: typedef struct
-;        {
-; 	   short id;	     /* ID to distinguish multiple devices */
-; 	   int x, y, z;      /* event coordinates */
-; 	   mmask_t bstate;   /* button state bits */
-;        }
-;        MEVENT;
-; C-prototype: int getmouse(MEVENT *event);
-; C-prototype: int ungetmouse(MEVENT *event);
-; C-prototype: mmask_t mousemask(mmask_t newmask, mmask_t *oldmask);
-; C-prototype: bool wenclose(const WINDOW *win, int y, int x);
-; C-prototype: bool mouse_trafo(int* pY, int* pX, bool to_screen);
-; C-prototype: bool wmouse_trafo(const WINDOW* win, int* pY, int* pX, bool to_screen);
-; C-prototype: int mouseinterval(int erval);
+;; TODO:
+;;
+;; C-prototype: typedef unsigned long mmask_t;
+;;
+;; C-prototype: typedef struct
+;;        {
+;; 	   short id;	     /* ID to distinguish multiple devices */
+;; 	   int x, y, z;      /* event coordinates */
+;; 	   mmask_t bstate;   /* button state bits */
+;;        }
+;;        MEVENT;
+;; C-prototype: int getmouse(MEVENT *event);
+;; C-prototype: int ungetmouse(MEVENT *event);
+;; C-prototype: mmask_t mousemask(mmask_t newmask, mmask_t *oldmask);
+;; C-prototype: bool wenclose(const WINDOW *win, int y, int x);
+;; C-prototype: bool mouse_trafo(int* pY, int* pX, bool to_screen);
+;; C-prototype: bool wmouse_trafo(const WINDOW* win, int* pY, int* pX, bool to_screen);;
+;; C-prototype: int mouseinterval(int erval);
 
 
 ;; move
@@ -1323,10 +1356,11 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
   (srcwin window-ptr)
   (dstwin window-ptr))
 
-;TODO
-; C-prototype: int copywin(const WINDOW *srcwin, WINDOW *dstwin, int sminrow,
-;              int smincol, int dminrow, int dmincol, int dmaxrow,
-;              int dmaxcol, int overlay);
+;; TODO:
+;;
+;; C-prototype: int copywin(const WINDOW *srcwin, WINDOW *dstwin, int sminrow,
+;;              int smincol, int dminrow, int dmincol, int dmaxrow,
+;;              int dmaxcol, int overlay);
 
 
 ;; pad
@@ -1378,7 +1412,8 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 
 
 ;; printw
-; TODO: support a variable number of args
+
+;; TODO: support a variable number of args
 (define-exported-cfuns ("printw")
     :int
   (fmt :string))
@@ -1401,8 +1436,10 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
   (x :int)
   (fmt :string))
 
-; C-prototype: int vwprintw(WINDOW *win, const char *fmt, va_list varglist);
-; C-prototype: int vw_printw(WINDOW *win, const char *fmt, va_list varglist);
+;; TODO:
+;;
+;; C-prototype: int vwprintw(WINDOW *win, const char *fmt, va_list varglist);
+;; C-prototype: int vw_printw(WINDOW *win, const char *fmt, va_list varglist);
 
 
 ;; refresh
@@ -1428,21 +1465,22 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
   (columns :int))
 
 (define-exported-cfuns ("resize_term"
-           #-(or win32 mswindows)
-           "resizeterm")
+                        #-(or win32 mswindows) "resizeterm")
     :int
   (lines :int)
   (columns :int))
 
 
 ;; scanw
-; TODO
-; C-prototype: int scanw(char *fmt, ...);
-; C-prototype: int wscanw(WINDOW *win, char *fmt, ...);
-; C-prototype: int mvscanw(int y, int x, char *fmt, ...);
-; C-prototype: int mvwscanw(WINDOW *win, int y, int x, char *fmt, ...);
-; C-prototype: int vw_scanw(WINDOW *win, char *fmt, va_list varglist);
-; C-prototype: int vwscanw(WINDOW *win, char *fmt, va_list varglist);
+
+;; TODO:
+;;
+;; C-prototype: int scanw(char *fmt, ...);
+;; C-prototype: int wscanw(WINDOW *win, char *fmt, ...);
+;; C-prototype: int mvscanw(int y, int x, char *fmt, ...);
+;; C-prototype: int mvwscanw(WINDOW *win, int y, int x, char *fmt, ...);
+;; C-prototype: int vw_scanw(WINDOW *win, char *fmt, va_list varglist);
+;; C-prototype: int vwscanw(WINDOW *win, char *fmt, va_list varglist);
 
 
 ;; scr_dump
@@ -1488,11 +1526,12 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
     :int
   (attrs chtype))
 
-; TODO
-; C-prototype: int slk_attr_on(attr_t attrs, void* opts);
-; C-prototype: int slk_attr_off(const attr_t attrs, void * opts);
-; C-prototype: int slk_attr_set(const attr_t attrs, short color_pair_number, void* opts);
-; C-prototype: attr_t slk_attr(void);
+;; TODO:
+;;
+;; C-prototype: int slk_attr_on(attr_t attrs, void* opts);
+;; C-prototype: int slk_attr_off(const attr_t attrs, void * opts);
+;; C-prototype: int slk_attr_set(const attr_t attrs, short color_pair_number, void* opts);
+;; C-prototype: attr_t slk_attr(void);
 
 (define-exported-cfuns ("slk_color")
     :int
@@ -1506,15 +1545,17 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 (define-exported-cfuns ("erasechar" "killchar")
     :char)
 
-; TODO
-; C-prototype: int erasewchar(wchar_t *ch);
+;; TODO:
+;;
+;; C-prototype: int erasewchar(wchar_t *ch);
 
 (define-exported-cfuns ("has_ic" "has_il")
     bool)
 
-; TODO
-; C-prototype: int killwchar(wchar_t *ch);
-; C-prototype: attr_t term_attrs(void);
+;; TODO:
+;;
+;; C-prototype: int killwchar(wchar_t *ch);
+;; C-prototype: attr_t term_attrs(void);
 
 (define-exported-cfuns ("termattrs")
     chtype)
@@ -1524,39 +1565,44 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 
 
 ;; termcap
-; TODO
-; C-prototype: extern char PC; extern char *  UP;  extern  char  *  BC;  extern  short ospeed;
-; C-prototype: int tgetent(char *bp, const char *name);
+
+;; TODO:
+;;
+;; C-prototype: extern char PC; extern char *  UP;  extern  char  *  BC;  extern  short ospeed;
+;; C-prototype: int tgetent(char *bp, const char *name);
 
 #-(or win32 mswindows)
 (define-exported-cfuns ("tgetflag" "tgetnum")
     :int
   (id char-ptr))
 
-; TODO
-; C-prototype: char *tgetstr(char *id, char **area);
-; C-prototype: char *tgoto(const char *cap, int col, int row);
-; C-prototype: int tputs(const char *str, int affcnt, int (*putc)(int));
+;; TODO:
+;;
+;; C-prototype: char *tgetstr(char *id, char **area);
+;; C-prototype: char *tgoto(const char *cap, int col, int row);
+;; C-prototype: int tputs(const char *str, int affcnt, int (*putc)(int));
 
 
 ;; terminfo
-; TODO
-; C-prototype: int setupterm(char *term, int fildes, int *errret);
-; C-prototype: int setterm(char *term);
-; C-prototype: TERMINAL *set_curterm(TERMINAL *nterm);
-; C-prototype: int del_curterm(TERMINAL *oterm);
-; C-prototype: int restartterm(const char *term, int fildes, int *errret);
-; C-prototype: char *tparm(char *str, ...);
-; C-prototype: int tputs(const char *str, int affcnt, int (*putc)(int));
-; C-prototype: int putp(const char *str);
-; C-prototype: int vidputs(chtype attrs, int (*putc)(int));
-; C-prototype: int vidattr(chtype attrs);
-; C-prototype: int vid_puts(attr_t attrs, short pair, void *opts, int (*putc)(char));
-; C-prototype: int vid_attr(attr_t attrs, short pair, void *opts);
-; C-prototype: int mvcur(int oldrow, int oldcol, int newrow, int newcol);
-; C-prototype: int tigetflag(char *capname);
-; C-prototype: int tigetnum(char *capname);
-; C-prototype: char *tigetstr(char *capname);
+
+;; TODO:
+;;
+;; C-prototype: int setupterm(char *term, int fildes, int *errret);
+;; C-prototype: int setterm(char *term);
+;; C-prototype: TERMINAL *set_curterm(TERMINAL *nterm);
+;; C-prototype: int del_curterm(TERMINAL *oterm);
+;; C-prototype: int restartterm(const char *term, int fildes, int *errret);
+;; C-prototype: char *tparm(char *str, ...);
+;; C-prototype: int tputs(const char *str, int affcnt, int (*putc)(int));
+;; C-prototype: int putp(const char *str);
+;; C-prototype: int vidputs(chtype attrs, int (*putc)(int));
+;; C-prototype: int vidattr(chtype attrs);
+;; C-prototype: int vid_puts(attr_t attrs, short pair, void *opts, int (*putc)(char));
+;; C-prototype: int vid_attr(attr_t attrs, short pair, void *opts);
+;; C-prototype: int mvcur(int oldrow, int oldcol, int newrow, int newcol);
+;; C-prototype: int tigetflag(char *capname);
+;; C-prototype: int tigetnum(char *capname);
+;; C-prototype: char *tigetstr(char *capname);
 
 
 ;; touch
@@ -1610,11 +1656,12 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 (define-exported-cfuns ("flushinp")
     :int)
 
-; TODO
-; C-prototype: char *wunctrl(cchar_t *c);
-; C-prototype: char *key_name(wchar_t w);
-; C-prototype: int putwin(WINDOW *win, FILE *filep);
-; C-prototype: WINDOW *getwin(FILE *filep);
+;; TODO:
+;;
+;; C-prototype: char *wunctrl(cchar_t *c);
+;; C-prototype: char *key_name(wchar_t w);
+;; C-prototype: int putwin(WINDOW *win, FILE *filep);
+;; C-prototype: WINDOW *getwin(FILE *filep);
 
 
 ;; variables
