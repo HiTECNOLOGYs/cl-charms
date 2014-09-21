@@ -63,5 +63,14 @@ Note that windows may not overlap."
     (values width height)))
 
 (defun refresh-window (window)
+  "Refresh the display of the window WINDOW."
   (check-status (charms/ll:wrefresh (window-pointer window)))
   t)
+
+(defun char-at-cursor (window)
+  "What is the character at the cursor in the window WINDOW?"
+  (c-char-to-character (charms/ll:winch (window-pointer window))))
+
+(defun char-at-point (window x y)
+  "What is the character at the point (X, Y) in the window WINDOW?"
+  (c-char-to-character (charms/ll:mvwinch (window-pointer window) y x)))

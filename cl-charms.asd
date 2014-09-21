@@ -50,4 +50,6 @@
                              (:file "utilities")
                              (:file "windows")
                              (:file "cursor")
+                             (:file "output")
+                             (:file "input")
                              (:file "initialization")))))

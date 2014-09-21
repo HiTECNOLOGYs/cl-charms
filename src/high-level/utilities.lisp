@@ -19,6 +19,17 @@
         ((eql value charms/ll:TRUE)    t)
         (t (error "The value ~S is not a valid foreign boolean." value)))))
 
+(defun character-to-c-char (character)
+  "Convert a Lisp character to a C character."
+  (check-type character character)
+  ;; FIXME: This isn't quite right.
+  (char-code character))
+
+(defun c-char-to-character (c-char)
+  "Convert a C character to a Lisp character."
+  ;; FIXME: This isn't quite right.
+  (code-char c-char))
+
 (defun check-status (value)
   "Check the status of the resulting value VALUE to see if it is an error. If so, signal an error. If not, return the value."
   (if (eql value charms/ll:ERR)

@@ -36,6 +36,8 @@
    #:copy-window                        ; FUNCTION
    #:window-dimensions                  ; FUNCTION
    #:refresh-window                     ; FUNCTION
+   #:char-at-cursor                     ; FUNCTION
+   #:char-at-point                      ; FUNCTION
    )
   
   ;; cursor.lisp
@@ -47,6 +49,17 @@
    #:move-cursor-down                   ; FUNCTION
    #:move-cursor-right                  ; FUNCTION
    #:move-cursor-left                   ; FUNCTION
+   )
+  
+  ;; output.lisp
+  (:export
+   #:write-char-at-cursor               ; FUNCTION
+   #:write-char-at-point                ; FUNCTION
+   )
+  
+  ;; input.lisp
+  (:export
+   #:get-char                           ; FUNCTION
    )
   
   ;; initialization.lisp
