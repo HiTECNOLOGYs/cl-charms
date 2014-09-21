@@ -4,15 +4,6 @@
 
 (in-package #:cl-charms)
 
-(alexandria:define-constant +standard-window+
-    (make-instance 'window :pointer charms/ll:*stdscr*)
-  :test (lambda (x y)
-          (and (typep x 'window) (slot-boundp x 'pointer)
-               (typep y 'window) (slot-boundp y 'pointer)
-               (cffi:pointer-eq (window-pointer x)
-                                (window-pointer y))))
-  :documentation "The standard/global window.")
-
 (defun initialize ()
   "Initialize ncurses and the terminal for drawing.
 
