@@ -73,5 +73,7 @@
    #:disable-extra-keys                 ; FUNCTION
    #:enable-raw-input                   ; FUNCTION
    #:disable-raw-input                  ; FUNCTION
+   #:enable-non-blocking-mode           ; FUNCTION
+   #:disable-non-blocking-mode          ; FUNCTION
    )
   )

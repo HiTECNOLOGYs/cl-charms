@@ -89,5 +89,12 @@ If INTERPRET-CONTROL-CHARACTERS is T, then control characters like Ctrl-C will b
   
   t)
 
-;; TODO: ENABLE-DELAY, DISABLE-DELAY
+(defun enable-non-blocking-mode (window)
+  "Enable non-blocking mode for the window WINDOW. This will cause character input functions to not block and error (or return NIL)."
+  (check-status (charms/ll:nodelay (window-pointer window) charms/ll:TRUE)))
+
+(defun disable-non-blocking-mode (window)
+  "Disable non-blocking mode for the window WINDOW. This will cause character input to block."
+  (check-status (charms/ll:nodelay (window-pointer window) charms/ll:FALSE)))
+
 
