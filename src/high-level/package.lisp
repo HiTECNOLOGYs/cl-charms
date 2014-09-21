@@ -85,8 +85,8 @@
   
   ;; miscellaneous.lisp
   (:export
-   #:beep-console
-   #:flash-console
-   #:curses-version
+   #:beep-console                       ; FUNCTION
+   #:flash-console                      ; FUNCTION
+   #:curses-version                     ; FUNCTION
    )
   )
