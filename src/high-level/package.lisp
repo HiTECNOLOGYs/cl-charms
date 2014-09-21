@@ -82,4 +82,10 @@
    #:enable-non-blocking-mode           ; FUNCTION
    #:disable-non-blocking-mode          ; FUNCTION
    )
+  
+  ;; miscellaneous.lisp
+  (:export
+   #:beep-console
+   #:flash-console
+   )
   )

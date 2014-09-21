@@ -52,4 +52,5 @@
                              (:file "cursor")
                              (:file "output")
                              (:file "input")
-                             (:file "initialization")))))
+                             (:file "initialization")
+                             (:file "miscellaneous")))))
