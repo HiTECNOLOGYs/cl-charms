@@ -36,6 +36,10 @@
    #:copy-window                        ; FUNCTION
    #:window-dimensions                  ; FUNCTION
    #:refresh-window                     ; FUNCTION
+   #:force-repaint                      ; FUNCTION
+   #:clear-window                       ; FUNCTION
+   #:clear-window-after-cursor          ; FUNCTION
+   #:clear-line-after-cursor            ; FUNCTION
    #:char-at-cursor                     ; FUNCTION
    #:char-at-point                      ; FUNCTION
    )

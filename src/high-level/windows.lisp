@@ -67,6 +67,28 @@ Note that windows may not overlap."
   (check-status (charms/ll:wrefresh (window-pointer window)))
   t)
 
+(defun force-repaint (window)
+  "Force the entire window to be cleared and repainted on the next call to `CHARMS:REFRESH-WINDOW'."
+  (check-status (charms/ll:clearok (window-pointer window) charms/ll:TRUE))
+  t)
+
+(defun clear-window (window &key force-repaint)
+  "Blank out the contents of the window WINDOW. If FORCE-REPAINT is T, then the window will be repainted entirely in the next refresh. (Using this option can be more optimally performant than calling `CHARMS:FORCE-REPAINT' manually.)"
+  (if force-repaint
+      (check-status (charms/ll:wclear (window-pointer window)))
+      (check-status (charms/ll:werase (window-pointer window))))
+  t)
+
+(defun clear-window-after-cursor (window)
+  "Clear the rest of the window after the cursor in the window WINDOW."
+  ;; XXX: Man page says "returns an error if the cursor position is
+  ;; about to wrap"
+  (check-status (charms/ll:wclrtobot (window-pointer window))))
+
+(defun clear-line-after-cursor (window)
+  "Clear the rest of the line after the cursor in the window WINDOW."
+  (check-status (charms/ll:wclrtoeol (window-pointer window))))
+
 (defun char-at-cursor (window)
   "What is the character at the cursor in the window WINDOW?"
   (c-char-to-character (charms/ll:winch (window-pointer window))))
@@ -74,3 +96,5 @@ Note that windows may not overlap."
 (defun char-at-point (window x y)
   "What is the character at the point (X, Y) in the window WINDOW?"
   (c-char-to-character (charms/ll:mvwinch (window-pointer window) y x)))
+
+;;; TODO: scrollok, idlok, idcok, nl, nonl
