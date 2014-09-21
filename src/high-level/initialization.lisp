@@ -18,13 +18,19 @@
 
 This function must be called before using curses functions. Consider using the macro `CHARMS:WITH-CURSES' to ensure this.
 "
-  (charms/ll:initscr))
+  (let ((stdscr (charms/ll:initscr)))
+    (when (cffi:null-pointer-p stdscr)
+      (error "INITIALIZE failed.")))
+
+  ;; Query the standard window the normal way.
+  (standard-window))
 
 (defun finalize ()
   "Finalize ncurses.
 
 This function must be called before exiting. Consider using the macro `CHARMS:WITH-CURSES' to ensure this."
-  (charms/ll:endwin))
+  (check-status (charms/ll:endwin))
+  t)
 
 (defmacro with-curses (options &body body)
   "Execute the body BODY, ensuring that "
@@ -42,19 +48,23 @@ This function must be called before exiting. Consider using the macro `CHARMS:WI
 
 (defun enable-echoing ()
   "Enable the echoing of characters to the screen."
-  (charms/ll:echo))
+  (check-status (charms/ll:echo))
+  t)
 
 (defun disable-echoing ()
   "Disable the echoing of characters to the screen."
-  (charms/ll:noecho))
+  (check-status (charms/ll:noecho))
+  t)
 
 (defun enable-extra-keys (window)
   "Enable extra keys, such as arrow and function keys, in the window WINDOW."
-  (charms/ll:keypad (window-pointer window) charms/ll:TRUE))
+  (check-status (charms/ll:keypad (window-pointer window) charms/ll:TRUE))
+  t)
 
 (defun disable-extra-keys (window)
   "Disable extra keys, such as arrow and function keys, in the window WINDOW."
-  (charms/ll:keypad (window-pointer window) charms/ll:FALSE))
+  (check-status (charms/ll:keypad (window-pointer window) charms/ll:FALSE))
+  t)
 
 (defvar *input-mode* nil)
 
@@ -96,5 +106,3 @@ If INTERPRET-CONTROL-CHARACTERS is T, then control characters like Ctrl-C will b
 (defun disable-non-blocking-mode (window)
   "Disable non-blocking mode for the window WINDOW. This will cause character input to block."
   (check-status (charms/ll:nodelay (window-pointer window) charms/ll:FALSE)))
-
-
