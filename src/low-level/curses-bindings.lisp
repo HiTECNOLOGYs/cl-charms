@@ -1,5 +1,6 @@
 ;;;; This file is part of cl-charms, providing CFFI bindings to libcurses.
 ;;;;
+;;;; Copyright (c) 2014-2015 Robert Smith <quad@symbo1ics.com>
 ;;;; Copyright (c) 2014 Mark Fedurin <hitecnologys@gmail.com>
 ;;;; Copyright (c) 2010 Abhishek Reddy <http://abhishek.geek.nz>
 ;;;;
@@ -40,7 +41,17 @@
 
 #-sb-unicode
 (cffi:define-foreign-library libcurses
-  (:darwin (:or "libcurses.dylib" "libncurses.dylib"))
+  (:darwin (:or "libncurses.dylib"
+                "libcurses.dylib"
+                ;; XXX: This is a bit of a hack. It probably should be
+                ;; fixed in CFFI.
+                ;;
+                ;; LispWorks doesn't find libncurses on Mac
+                ;; immediately. Give it a hint at its default
+                ;; location.
+                ;;
+                ;;                   -- Robert Smith, Jan 24, 2015
+                #+lispworks "/usr/lib/libncurses.dylib"))
   (:unix (:or "libncurses.so.5" "libcurses"))
   (t (:default "libcurses")))
 
