@@ -115,8 +115,7 @@ Bugs and Contributing
 
 You can use GitHub project's (which is located here:
 https://github.com/HiTECNOLOGYs/cl-charms) issues tracker or wiki to contribute
-bug reports/patches/etc. or just send me an email (but that's not recommended
-way to do it, though).
+bug reports/patches/etc. or just send an email to one of the maintainers.
 
 Major areas of work to be done:
 
@@ -125,3 +124,9 @@ Major areas of work to be done:
 * Try it with non-libncurses libraries.
 * Test cases and sample applications.
 * Finally write documentation
+
+Current Maintainers
+===================
+
+* [Robert Smith](https://github.com/tarballs-are-good) (quad@symbo1ics.com)
+* [Mark Fedurin](https://github.com/HiTECNOLOGYs) (hitecnologys@gmail.com)
