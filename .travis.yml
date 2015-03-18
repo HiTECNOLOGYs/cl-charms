@@ -19,4 +19,3 @@ script:
                    (declare (ignore c h))
                    (uiop:quit -1)))'
        -e '(ql:quickload :cl-charms)'
-       -e '(asdf:compile-system :cl-charms :force t)'
