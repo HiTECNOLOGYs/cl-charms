@@ -1,0 +1,22 @@
+language: common-lisp
+
+env:
+  matrix:
+    - LISP=sbcl
+
+install:
+  # Install cl-travis
+  - curl https://raw.githubusercontent.com/luismbo/cl-travis/master/install.sh | bash
+  # Install ncurses
+  - sudo apt-get install ncurses
+
+script:
+  - cl -e '(ql:quickload :fiveam)'
+       -e '(setf fiveam:*debug-on-error* t
+                 fiveam:*debug-on-failure* t)'
+       -e '(setf *debugger-hook*
+                 (lambda (c h)
+                   (declare (ignore c h))
+                   (uiop:quit -1)))'
+       -e '(ql:quickload :cl-charms)'
+       -e '(asdf:compile-system :cl-charms :force t)'
