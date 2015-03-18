@@ -11,11 +11,4 @@ install:
   - sudo apt-get install libncurses5
 
 script:
-  - cl -e '(ql:quickload :fiveam)'
-       -e '(setf fiveam:*debug-on-error* t
-                 fiveam:*debug-on-failure* t)'
-       -e '(setf *debugger-hook*
-                 (lambda (c h)
-                   (declare (ignore c h))
-                   (uiop:quit -1)))'
-       -e '(ql:quickload :cl-charms)'
+  - cl -e '(ql:quickload :cl-charms)'
