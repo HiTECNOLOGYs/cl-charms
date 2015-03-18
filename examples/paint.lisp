@@ -1,21 +1,19 @@
-;;;; paint.lisp
+;;;; This is an example that shows a simple "paint"/ASCII-art program.
 ;;;;
-;;;; Author: Robert Smith
-
-(ql:quickload :cl-charms)
-
-;;; This is an example that shows a simple "paint"/ASCII-art program.
-;;;
-;;; Move around the canvas with WASD
-;;;
-;;;    [W]: Up
-;;;    [A]: Left
-;;;    [S]: Down
-;;;    [D]: Right
-;;;
-;;; and paint to it/erase from it by pressing the space bar.
-;;;
-;;; The cursor will wrap around the edges like a torus.
+;;;; Move around the canvas with WASD
+;;;;
+;;;;    [W]: Up
+;;;;    [A]: Left
+;;;;    [S]: Down
+;;;;    [D]: Right
+;;;;
+;;;; and paint to it/erase from it by pressing the space bar.
+;;;;
+;;;; The cursor will wrap around the edges like a torus.
+(defpackage charms-paint
+  (:use :cl)
+  (:export :main))
+(in-package :charms-paint)
 
 (defun paint ()
   "Paint an asterisk at the cursor, or erase the one already painted."
