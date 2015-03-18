@@ -1,13 +1,10 @@
-;;;; timer.lisp
-;;;;
-;;;; Author: Robert Smith
-
-(ql:quickload :cl-charms)
-
-;;; This is an example that shows a simple timer using the high-level
-;;; interface. Run MAIN and press the space bar to start, stop, and
-;;; clear the timer. Press 'q' to quit.
-
+;;;; This is an example that shows a simple timer using the high-level
+;;;; interface. Run MAIN and press the space bar to start, stop, and clear the
+;;;; timer. Press 'q' to quit.
+(defpackage charms-timer
+  (:use :cl)
+  (:export :main))
+(in-package :charms-timer)
 
 ;;; Timer state & manipulation
 
@@ -57,7 +54,7 @@
     (charms:disable-echoing)
     (charms:enable-raw-input :interpret-control-characters t)
     (charms:enable-non-blocking-mode charms:*standard-window*)
-    
+
     (loop :named driver-loop
           :for c := (charms:get-char charms:*standard-window*
                                      :ignore-error t)
@@ -66,7 +63,7 @@
                 (charms:clear-window charms:*standard-window*)
                 (paint-time)
                 (charms:refresh-window charms:*standard-window*)
-                
+
                 ;; Process input
                 (case c
                   ((nil) nil)
