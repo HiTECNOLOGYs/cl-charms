@@ -1,13 +1,10 @@
-;;;; timer.lisp
-;;;;
-;;;; Author: Robert Smith
-
-(ql:quickload :cl-charms)
-
-;;; This is an example that shows a simple timer using the high-level
-;;; interface. Run MAIN and press the space bar to start, stop, and
-;;; clear the timer. Press 'q' to quit.
-
+;;;; This is an example that shows a simple timer using the high-level
+;;;; interface. Run MAIN and press the space bar to start, stop, and clear the
+;;;; timer. Press 'q' to quit.
+(defpackage charms-timer
+  (:use :cl)
+  (:export :main))
+(in-package :charms-timer)
 
 ;;; Timer state & manipulation
 
