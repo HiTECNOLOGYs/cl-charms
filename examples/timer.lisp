@@ -54,7 +54,7 @@
     (charms:disable-echoing)
     (charms:enable-raw-input :interpret-control-characters t)
     (charms:enable-non-blocking-mode charms:*standard-window*)
-    
+
     (loop :named driver-loop
           :for c := (charms:get-char charms:*standard-window*
                                      :ignore-error t)
@@ -63,7 +63,7 @@
                 (charms:clear-window charms:*standard-window*)
                 (paint-time)
                 (charms:refresh-window charms:*standard-window*)
-                
+
                 ;; Process input
                 (case c
                   ((nil) nil)
