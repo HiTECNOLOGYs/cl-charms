@@ -20,4 +20,4 @@ script:
                    (declare (ignore c h))
                    (uiop:quit -1)))'
        -e '(coveralls:with-coveralls (:exclude (list "examples" "t"))
-             (asdf:compile-system :cl-charms :force t))'
+             t)'
