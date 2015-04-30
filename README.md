@@ -59,6 +59,7 @@ example code runs) on the following platforms:
 * CCL 1.9-r15759 on OS X 10.10 (Yosemite) x86-64
 * LispWorks 6.1.1 on OS X 10.10 (Yosemite) x86-64
 * SBCL 1.1.14.debian on Ubuntu 14.04.2 LTS (trusty) x86
+* SBCL 1.2.11 on Windows 8.1 amd64
 
 It may work on other implementations and system but there's no
 guarantee. More testing is really appreciated.
@@ -71,6 +72,24 @@ help test and realize this.
 `cl-charms` is supposed to be only bindings along with a separate,
 no-frills interface atop: nothing more, nothing less. For
 full-featured TUI see: https://bitbucket.org/naryl/cl-tui
+
+
+Windows
+-------
+
+`cl-charms` works on Windows with some limitations. Currently colours are not
+supported and some other features like bold might not work correctly. In order
+to use `cl-charms` on Windows, you'll need PDCurses library that is available
+at http://pdcurses.sourceforge.net/. If you want to use GDI instead of console
+http://www.projectpluto.com/win32a.htm would be a good option.
+
+While the original PDCurses project offers prebuilt binaries, using project
+pluto requires you to compile your own binaries. Both options require changing
+name of library dll from `pdcurses.dll` to `libcurses.dll`. 
+
+Usage is as simple as placing the `libcurses.dll` either in PATH or in the
+directory where you're running your `cl-charms` program. Project pluto will
+require additional dependencies, namely `libgcc_s_dw2-1.dll` and `SDL.dll`.
 
 
 Installation
