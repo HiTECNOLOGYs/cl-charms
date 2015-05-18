@@ -7,8 +7,8 @@ both a raw, low-level interface to `libcurses` via CFFI, and a more
 higher-level lispier interface.
 
 It is intended to succeed `cl-ncurses`, which used the less portable
-UFFI instead of CFFI for foreign bindings. Indeed, cl-charms includes
-portions of code from `cl-ncurses`, and is largely a direct
+UFFI instead of CFFI for foreign bindings. Indeed, `cl-charms`
+includes portions of code from `cl-ncurses`, and is largely a direct
 translation of the latter's UFFI definitions to CFFI.
 
 Currently, the low-level interface (the package `charms/ll`) is
@@ -85,12 +85,12 @@ at http://pdcurses.sourceforge.net/. If you want to use GDI instead of console
 http://www.projectpluto.com/win32a.htm would be a good option.
 
 While the original PDCurses project offers prebuilt binaries, using project
-pluto requires you to compile your own binaries. Both options require changing
-name of library dll from `pdcurses.dll` to `libcurses.dll`. 
+pluto requires you to compile your own binaries.
 
-Usage is as simple as placing the `libcurses.dll` either in PATH or in the
-directory where you're running your `cl-charms` program. Project pluto will
-require additional dependencies, namely `libgcc_s_dw2-1.dll` and `SDL.dll`.
+Usage is as simple as placing the `pdcurses.dll` (optionally renaming
+it `libcurses.dll`) either in `PATH` or in the directory where you're
+running your `cl-charms` program. Project pluto will require
+additional dependencies, namely `libgcc_s_dw2-1.dll` and `SDL.dll`.
 
 
 Installation
