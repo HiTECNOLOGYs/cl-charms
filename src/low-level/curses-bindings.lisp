@@ -37,6 +37,7 @@
 (cffi:define-foreign-library libcurses
   (:darwin (:or "libncurses.dylib" "libcurses.dylib"))
   (:unix "libncursesw.so.5")
+  (:windows (:or "pdcurses" "libcurses"))
   (t (:default "libcurses")))
 
 #-sb-unicode
@@ -53,6 +54,7 @@
                 ;;                   -- Robert Smith, Jan 24, 2015
                 #+lispworks "/usr/lib/libncurses.dylib"))
   (:unix (:or "libncurses.so.5" "libcurses"))
+  (:windows (:or "pdcurses" "libcurses"))
   (t (:default "libcurses")))
 
 (cffi:use-foreign-library libcurses)
