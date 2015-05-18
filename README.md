@@ -58,9 +58,9 @@ example code runs) on the following platforms:
 * SBCL 1.1.14.debian on Ubuntu 14.04.2 LTS (trusty) x86
 * SBCL 1.2.11 on Windows 8.1 amd64
 * CCL 1.9-r15769M on Gentoo Linux (3.13.6-hardened-r3) x86-64
-* CCL 1.9-r15759 on OS X 10.10 (Yosemite) x86-64
-* LispWorks 6.1.1 on OS X 10.10 (Yosemite) x86-64
-* Lispworks 7.0.0 on OS X 10.10 (Yosemite) x86-64
+* CCL 1.9-r15759 (64-bit) on OS X 10.10 (Yosemite) x86-64
+* LispWorks 6.1.1 (64-bit) on OS X 10.10 (Yosemite) x86-64
+* Lispworks 7.0.0 (32-bit) on OS X 10.10 (Yosemite) x86-64
 
 It may work on other implementations and system but there's no
 guarantee. More testing is really appreciated.
