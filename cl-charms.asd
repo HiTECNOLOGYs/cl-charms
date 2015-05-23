@@ -38,11 +38,13 @@
   :license "MIT License (See COPYING)"
   :depends-on (#:cffi
                #:alexandria)
+  :defsystem-depends-on (#:cffi-grovel) ; for processing :cffi-grovel-file
   :serial t
   :pathname "src/"
   :components ((:module "low-level"
                 :serial t
                 :components ((:file "package")
+                             (:cffi-grovel-file "curses-grovel")
                              (:file "curses-bindings")))
                (:module "high-level"
                 :serial t

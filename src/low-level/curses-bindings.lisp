@@ -89,7 +89,7 @@
 
 
 ;; types
-(cffi:defctype bool :int)
+;;  note: bool definition is moved into grovel file (curses-grovel.lisp)
 (cffi:defctype char-ptr :pointer)
 (cffi:defctype chtype :int)
 (cffi:defctype file-ptr :pointer)
