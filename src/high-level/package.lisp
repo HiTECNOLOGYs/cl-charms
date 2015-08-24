@@ -61,6 +61,8 @@
    #:write-string-at-cursor             ; FUNCTION
    #:write-char-at-point                ; FUNCTION
    #:write-string-at-point              ; FUNCTION
+   #:write-acs-char-at-cursor           ; FUNCTION
+   #:write-acs-char-at-point            ; FUNCTION
    )
   
   ;; input.lisp
