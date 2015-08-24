@@ -1698,6 +1698,9 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 (cffi:defcvar ("curscr" *CURSCR* :library libcurses) window-ptr)
 (cffi:defcvar ("newscr" *NEWSCR* :library libcurses) window-ptr)
 
+(cffi:defcvar ("acs_map" *ACS-MAP* :library libcurses) (:pointer chtype))
+(export '*acs-map*)
+
 
 ;; window
 (define-exported-cfuns ("newwin")

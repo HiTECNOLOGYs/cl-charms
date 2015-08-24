@@ -61,6 +61,8 @@
    #:write-string-at-cursor             ; FUNCTION
    #:write-char-at-point                ; FUNCTION
    #:write-string-at-point              ; FUNCTION
+   #:write-acs-char-at-cursor           ; FUNCTION
+   #:write-acs-char-at-point            ; FUNCTION
    )
   
   ;; input.lisp
@@ -81,7 +83,20 @@
    #:disable-raw-input                  ; FUNCTION
    #:enable-non-blocking-mode           ; FUNCTION
    #:disable-non-blocking-mode          ; FUNCTION
+   #:enable-colors                      ; FUNCTION
    )
+
+  ;; attributes.lisp
+  (:export
+   #:initialize-pair                    ; FUNCTION
+   #:initialize-color                   ; FUNCTION
+   #:attribute-on                       ; FUNCTION
+   #:attribute-on-window                ; FUNCTION
+   #:attribute-off                      ; FUNCTION
+   #:attribute-off-window               ; FUNCTION
+   #:get-color-pair                     ; FUNCTION
+   )
+  
   
   ;; miscellaneous.lisp
   (:export
