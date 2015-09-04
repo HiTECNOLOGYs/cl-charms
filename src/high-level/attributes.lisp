@@ -44,6 +44,3 @@ for window WINDOW."
 (defun get-color-pair (n)
   "Return the color pair N to be used with an attribute function."
 	(ash n 8))
-
-
-
