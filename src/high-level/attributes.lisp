@@ -18,7 +18,6 @@ occurences of COLOR are immediately changed."
 					(charms/ll:init-color color r g b)
 					nil)))
 
-
 (defun attribute-on (&rest attributes)
   "Turn on the named attributes ATTRIBUTES without affecting any others."
   (check-status (charms/ll:attron (apply #'logior attributes))))
