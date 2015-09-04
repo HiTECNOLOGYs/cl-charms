@@ -57,3 +57,20 @@
     (move-cursor window
                  (max 0 (- x amount))
                  y)))
+
+;;; See 'man curs_set' for more info.
+(defun cursor-visibility (visibility)
+  "Set the cursor to VISIBILITY. VISIBILITY can be 0, 1, 2 or the symbols
+'invisible, 'normal, 'very-visible which correspond to the numbers 
+respectively. Returns the previous state if the change is succesful, else
+it returns nil or returns an error if the mode is not supported."
+  (check-status
+   (let ((vis-change (cond
+					   ((or (eq visibility 0) (eq visibility 'invisible)) 0)
+					   ((or (eq visibility 1) (eq visibility 'normal)) 1)
+					   ((or (eq visibility 2) (eq visibility 'very-visible)) 2)
+					   (t nil))))
+	 (if vis-change
+		 (charms/ll:curs-set vis-change)
+		 nil))))
+	 

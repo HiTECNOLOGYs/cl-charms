@@ -83,7 +83,20 @@
    #:disable-raw-input                  ; FUNCTION
    #:enable-non-blocking-mode           ; FUNCTION
    #:disable-non-blocking-mode          ; FUNCTION
+   #:enable-colors                      ; FUNCTION
    )
+
+  ;; attributes.lisp
+  (:export
+   #:initialize-pair                    ; FUNCTION
+   #:initialize-color                   ; FUNCTION
+   #:attribute-on                       ; FUNCTION
+   #:attribute-on-window                ; FUNCTION
+   #:attribute-off                      ; FUNCTION
+   #:attribute-off-window               ; FUNCTION
+   #:get-color-pair                     ; FUNCTION
+   )
+  
   
   ;; miscellaneous.lisp
   (:export
