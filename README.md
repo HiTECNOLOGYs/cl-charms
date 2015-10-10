@@ -124,6 +124,7 @@ There are currently two examples.
 You might also want to check out the following applications written
 using `cl-charms`:
 
+* Conway's [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life), exponentially accelerated with the HASHLIFE algorithm ([source](https://bitbucket.org/tarballs_are_good/lisp-random/src/9d41f43cd250eb6d34a9e423f090f16130150529/hashlife/?at=master))
 * The game "Snake" ([video](https://www.youtube.com/watch?v=Gpm1K1jtwuA), [source](https://bitbucket.org/tarballs_are_good/lisp-random/src/6c7e3ffd937f0ea0e4e9cd6144f98a1375280c21/snake.lisp?at=default))
 
 Timer
