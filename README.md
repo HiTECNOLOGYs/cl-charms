@@ -124,8 +124,8 @@ There are currently two examples.
 You might also want to check out the following applications written
 using `cl-charms`:
 
-* CHARMLIFE, a viewer for Conway's [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life), exponentially accelerated with the HASHLIFE algorithm ([video](https://youtu.be/YO3KIHjcrrs), [source](https://bitbucket.org/tarballs_are_good/lisp-random/src/9397f4a04ebb5f32dddc3c57952a01619a88d226/hashlife/?at=master))
-* The game "Snake" ([video](https://www.youtube.com/watch?v=Gpm1K1jtwuA), [source](https://bitbucket.org/tarballs_are_good/lisp-random/src/6c7e3ffd937f0ea0e4e9cd6144f98a1375280c21/snake.lisp?at=default))
+* CHARMLIFE, a viewer for Conway's [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life), exponentially accelerated with the HASHLIFE algorithm ([video](https://youtu.be/YO3KIHjcrrs), [source](https://bitbucket.org/tarballs_are_good/lisp-random/src/master/hashlife/))
+* The game "Snake" ([video](https://www.youtube.com/watch?v=Gpm1K1jtwuA), [source](https://bitbucket.org/tarballs_are_good/lisp-random/src/master/snake.lisp))
 
 Timer
 -----
