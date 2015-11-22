@@ -43,23 +43,11 @@
 #-sb-unicode
 (cffi:define-foreign-library libcurses
   (:darwin (:or "libncurses.dylib"
-                "libcurses.dylib"
-                ;; XXX: This is a bit of a hack. It probably should be
-                ;; fixed in CFFI.
-                ;;
-                ;; LispWorks doesn't find libncurses on Mac
-                ;; immediately. Give it a hint at its default
-                ;; location.
-                ;;
-                ;;                   -- Robert Smith, Jan 24, 2015
-                ;;
-                ;; This is fixed in CFFI commit 22dd5e3f3..., but is
-                ;; not yet on Quicklisp.
-                ;;
-                ;;                   -- Robert Smith, May 17, 2015
-                #+lispworks "/usr/lib/libncurses.dylib"))
-  (:unix (:or "libncurses.so.5" "libcurses"))
-  (:windows (:or "pdcurses" "libcurses"))
+                "libcurses.dylib"))
+  (:unix (:or "libncurses.so.5"
+              "libcurses"))
+  (:windows (:or "pdcurses"
+                 "libcurses"))
   (t (:default "libcurses")))
 
 (cffi:use-foreign-library libcurses)
