@@ -57,6 +57,8 @@
   
   ;; output.lisp
   (:export
+   #:insert-char-at-cursor              ; FUNCTION
+   #:insert-char-at-point               ; FUNCTION
    #:write-char-at-cursor               ; FUNCTION
    #:write-string-at-cursor             ; FUNCTION
    #:write-char-at-point                ; FUNCTION
