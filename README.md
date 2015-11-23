@@ -179,4 +179,4 @@ Current Maintainers
 ===================
 
 * [Robert Smith](https://github.com/tarballs-are-good) (quad@symbo1ics.com)
-* [Mark Fedurin](https://github.com/HiTECNOLOGYs) (hitecnologys@gmail.com)
+* [Mark Fedurin](https://github.com/HiTECNOLOGYs) (me@hitecnologys.org)
