@@ -30,8 +30,15 @@
   ;; FIXME: This isn't quite right.
   (code-char c-char))
 
-(defun check-status (value)
+(defmacro check-status (form)
   "Check the status of the resulting value VALUE to see if it is an error. If so, signal an error. If not, return the value."
+  (let ((error-string (if (and (listp form)
+                               (symbolp (first form)))
+                          (format nil "Error in curses call from function ~S (received ERR)." (first form))
+                          "Error in curses call (received ERR).")))
+    `(%check-status ,form :error-message ',error-string)))
+
+(defun %check-status (value &key error-message)
   (if (eql value charms/ll:ERR)
-      (error "Error in curses call.")
+      (error (or error-message "Error in curses call."))
       value))
