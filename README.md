@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/HiTECNOLOGYs/cl-charms.svg?branch=master)](https://travis-ci.org/HiTECNOLOGYs/cl-charms)
 
 Introduction
 ============
