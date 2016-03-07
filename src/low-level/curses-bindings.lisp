@@ -1421,28 +1421,58 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 
 ;; printw
 
-;; TODO: support a variable number of args
 (define-exported-cfuns ("printw")
     :int
-  (fmt :string))
+  "Prints formatted output in curses windows.
+Output is formatted as `fmt`, according to C language's printf function.
+Arguments for `fmt` can be passed as a form of { arg-type arg }*.
+caution: This function may crash when format string `fmt` won't match rest arguments.
+
+examples:
+(printw \"Hello world\") ; prints 'Hello world'
+(printw \"%d %.2f %s\" :int 42 :double pi :string \"charms\"); prints '42 3.14 charms'
+"
+  (fmt :string)
+  &rest)
 
 (define-exported-cfuns ("wprintw")
     :int
+  "Prints formatted output in window `win`.
+Output is formatted as `fmt`, according to C language's printf function.
+Arguments for `fmt` can be passed as a form of { arg-type arg }*.
+caution: This function may crash when format string `fmt` won't match rest arguments.
+
+see printw for examples."
   (win window-ptr)
-  (fmt :string))
+  (fmt :string)
+  &rest)
 
 (define-exported-cfuns ("mvprintw")
     :int
+  "Prints formatted output in curses windows at (`x`, `y`).
+Output is formatted as `fmt`, according to C language's printf function.
+Arguments for `fmt` can be passed as a form of { arg-type arg }*.
+caution: This function may crash when format string `fmt` won't match rest arguments.
+
+see printw for examples."
   (y :int)
   (x :int)
-  (fmt :string))
+  (fmt :string)
+  &rest)
 
 (define-exported-cfuns ("mvwprintw")
     :int
+  "Prints formatted output in window `win` at (`x`, `y`).
+Output is formatted as `fmt`, according to C language's printf function.
+Arguments for `fmt` can be passed as a form of { arg-type arg }*.
+caution: This function may crash when format string `fmt` won't match rest arguments.
+
+see printw for examples."
   (win window-ptr)
   (y :int)
   (x :int)
-  (fmt :string))
+  (fmt :string)
+  &rest)
 
 ;; TODO:
 ;;
