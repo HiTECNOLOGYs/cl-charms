@@ -14,7 +14,9 @@ This function must be called before using curses functions. Consider using the m
       (error "INITIALIZE failed.")))
 
   ;; Query the standard window the normal way.
-  (standard-window))
+  (let ((win (standard-window)))
+    (refresh-window win) ; Refresh window to update its dimensions
+    win))
 
 (defun finalize ()
   "Finalize ncurses.
@@ -36,7 +38,7 @@ Currently, there are no OPTIONS."
         (progn
           (force-output *terminal-io*)  ; Should *TERMINAL-IO* be
                                         ; used?
-          (initialize)
+          (refresh-window (initialize)) ; Refresh window to update its dimensions
           (let ((*standard-window* (standard-window)))
             ,@body))
      (finalize)))
@@ -69,7 +71,7 @@ Currently, there are no OPTIONS."
 If INTERPRET-CONTROL-CHARACTERS is T, then control characters like Ctrl-C will be interpreted as usual."
   ;; Ensure mutual exclusion of :RAW and :CBREAK.
   (disable-raw-input)
-  
+
   ;; Enable and remember the mode.
   (cond
     (interpret-control-characters
@@ -85,13 +87,13 @@ If INTERPRET-CONTROL-CHARACTERS is T, then control characters like Ctrl-C will b
   (when (null *input-mode*)
     (check-status (charms/ll:nocbreak))
     (check-status (charms/ll:noraw)))
-  
+
   (when (eq :raw *input-mode*)
     (check-status (charms/ll:noraw)))
-  
+
   (when (eq :cbreak *input-mode*)
     (check-status (charms/ll:nocbreak)))
-  
+
   t)
 
 (defun enable-non-blocking-mode (window)
