@@ -160,6 +160,30 @@ loaded on various Lisp systems on a variety of operating systems.
 
 [TODO]
 
+Note about SLIME
+================
+
+The `libcurses` library handles terminal, and emacs is not a terminal
+it can handle. So if you run lisp from SLIME (inside emacs),
+`libcurses` functions won't work properly.
+
+If you want to use SLIME, a possible way (to e.g. run the timer
+example) is:
+
+1. run lisp from terminal
+2. `(ql:quickload '(:swank) :silent t)` ;; from terminal
+3. `(swank:create-server :port 5555 :dont-close t)` ;; from terminal, too
+4. go to emacs and M-x slime-connect RET localhost RET 5555 RET
+5. `(ql:quickload :cl-charms-timer)` ;; from emacs repl
+6. `(charms-timer:main)` ;; from emacs repl
+
+Now you should see timer running on terminal.
+
+Step 1. ~ 3. can be done as a one-liner:
+
+- for SBCL: `sbcl --eval "(ql:quickload '(:swank) :silent t)" --eval "(swank:create-server :port 5555 :dont-close t)"`
+- for CCL: `ccl -e "(ql:quickload '(:swank) :silent t)" -e "(swank:create-server :port 5555 :dont-close t)"` ;; maybe ccl64 instead of ccl
+- for [Roswell](https://github.com/roswell/roswell): `ros run -e "(ql:quickload '(:swank) :silent t)" -e "(swank:create-server :port 5555 :dont-close t)"`
 
 Bugs and Contributing
 =====================
