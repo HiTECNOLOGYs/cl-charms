@@ -38,7 +38,7 @@ Currently, there are no OPTIONS."
         (progn
           (force-output *terminal-io*)  ; Should *TERMINAL-IO* be
                                         ; used?
-          (refresh-window (initialize)) ; Refresh window to update its dimensions
+          (initialize)
           (let ((*standard-window* (standard-window)))
             ,@body))
      (finalize)))
