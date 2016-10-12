@@ -37,7 +37,8 @@
 (cffi:define-foreign-library libcurses
   (:darwin (:or "libncurses.dylib" "libcurses.dylib"))
   (:unix (:or "libncursesw.so.6"
-              "libncursesw.so.5"))
+              "libncursesw.so.5"
+              "libncursesw.so.14.0"))
   (:windows (:or "pdcurses" "libcurses"))
   (t (:default "libcurses")))
 
@@ -48,6 +49,7 @@
   (:unix (:or "libncursesw.so.6"
               "libncurses.so.6"
               "libncurses.so.5"
+              "libncursesw.so.14.0"
               "libcurses"))
   (:windows (:or "pdcurses"
                  "libcurses"))
