@@ -55,12 +55,14 @@ Currently, there are no OPTIONS."
 
 (defun enable-extra-keys (window)
   "Enable extra keys, such as arrow and function keys, in the window WINDOW."
-  (check-status (charms/ll:keypad (window-pointer window) charms/ll:TRUE))
+  (check-status (charms/ll:keypad (window-pointer (resolve-window window))
+                                  charms/ll:TRUE))
   t)
 
 (defun disable-extra-keys (window)
   "Disable extra keys, such as arrow and function keys, in the window WINDOW."
-  (check-status (charms/ll:keypad (window-pointer window) charms/ll:FALSE))
+  (check-status (charms/ll:keypad (window-pointer (resolve-window window))
+                                  charms/ll:FALSE))
   t)
 
 (defvar *input-mode* nil)
@@ -98,8 +100,10 @@ If INTERPRET-CONTROL-CHARACTERS is T, then control characters like Ctrl-C will b
 
 (defun enable-non-blocking-mode (window)
   "Enable non-blocking mode for the window WINDOW. This will cause character input functions to not block and error (or return NIL)."
-  (check-status (charms/ll:nodelay (window-pointer window) charms/ll:TRUE)))
+  (check-status (charms/ll:nodelay (window-pointer (resolve-window window))
+                                   charms/ll:TRUE)))
 
 (defun disable-non-blocking-mode (window)
   "Disable non-blocking mode for the window WINDOW. This will cause character input to block."
-  (check-status (charms/ll:nodelay (window-pointer window) charms/ll:FALSE)))
+  (check-status (charms/ll:nodelay (window-pointer (resolve-window window))
+                                   charms/ll:FALSE)))
