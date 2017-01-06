@@ -42,3 +42,9 @@
   (if (eql value charms/ll:ERR)
       (error (or error-message "Error in curses call."))
       value))
+
+(declaim (inline resolve-window))
+(defun resolve-window (window-designator)
+  (if (eq t window-designator)
+    *standard-window*
+    window-designator))
