@@ -625,12 +625,12 @@
 (define-exported-constant WA_ALTCHARSET #x00400000)
 (define-exported-constant WA_INVIS #x00800000)
 (define-exported-constant WA_PROTECT #x01000000)
-(define-exported-constant WA_HORIZONTAL #x02000000) ;XSI Curses attr -- not yet used 
-(define-exported-constant WA_LEFT #x04000000) ;XSI Curses attr -- not yet used 
-(define-exported-constant WA_LOW #x08000000) ;XSI Curses attr -- not yet used 
-(define-exported-constant WA_RIGHT #x10000000) ;XSI Curses attr -- not yet used 
-(define-exported-constant WA_TOP #x20000000) ;XSI Curses attr -- not yet used 
-(define-exported-constant WA_VERTICAL #x40000000) ;XSI Curses attr -- not yet used 
+(define-exported-constant WA_HORIZONTAL #x02000000) ;XSI Curses attr -- not yet used
+(define-exported-constant WA_LEFT #x04000000) ;XSI Curses attr -- not yet used
+(define-exported-constant WA_LOW #x08000000) ;XSI Curses attr -- not yet used
+(define-exported-constant WA_RIGHT #x10000000) ;XSI Curses attr -- not yet used
+(define-exported-constant WA_TOP #x20000000) ;XSI Curses attr -- not yet used
+(define-exported-constant WA_VERTICAL #x40000000) ;XSI Curses attr -- not yet used
 
 (define-exported-constant A_ATTRIBUTES #xffffff00)
 (define-exported-constant A_NORMAL #x00000000)
@@ -643,32 +643,32 @@
 (define-exported-constant A_ALTCHARSET #x00400000)
 (define-exported-constant A_INVIS #x00800000)
 (define-exported-constant A_PROTECT #x01000000)
-(define-exported-constant A_HORIZONTAL #x02000000) ;XSI Curses attr -- not yet used 
-(define-exported-constant A_LEFT #x04000000) ;XSI Curses attr -- not yet used 
-(define-exported-constant A_LOW #x08000000) ;XSI Curses attr -- not yet used 
-(define-exported-constant A_RIGHT #x10000000) ;XSI Curses attr -- not yet used 
-(define-exported-constant A_TOP #x20000000) ;XSI Curses attr -- not yet used 
-(define-exported-constant A_VERTICAL #x40000000) ;XSI Curses attr -- not yet used 
+(define-exported-constant A_HORIZONTAL #x02000000) ;XSI Curses attr -- not yet used
+(define-exported-constant A_LEFT #x04000000) ;XSI Curses attr -- not yet used
+(define-exported-constant A_LOW #x08000000) ;XSI Curses attr -- not yet used
+(define-exported-constant A_RIGHT #x10000000) ;XSI Curses attr -- not yet used
+(define-exported-constant A_TOP #x20000000) ;XSI Curses attr -- not yet used
+(define-exported-constant A_VERTICAL #x40000000) ;XSI Curses attr -- not yet used
 
 ; VT100 symbols
 (define-exported-constant ACS_ULCORNER #\l) ; upper left corner
-(define-exported-constant ACS_LLCORNER #\m) ; lower left corner 
-(define-exported-constant ACS_URCORNER #\k) ; upper right corner 
-(define-exported-constant ACS_LRCORNER #\j) ; lower right corner 
-(define-exported-constant ACS_LTEE #\t) ; tee pointing right 
-(define-exported-constant ACS_RTEE #\u) ; tee pointing left 
-(define-exported-constant ACS_BTEE #\v) ; tee pointing up 
-(define-exported-constant ACS_TTEE #\w) ; tee pointing down 
-(define-exported-constant ACS_HLINE #\q) ; horizontal line 
-(define-exported-constant ACS_VLINE #\x) ; vertical line 
-(define-exported-constant ACS_PLUS #\n) ; large plus or crossover 
-(define-exported-constant ACS_S1 #\o) ; scan line 1 
-(define-exported-constant ACS_S9 #\s) ; scan line 9 
-(define-exported-constant ACS_DIAMOND #\`) ; diamond 
-(define-exported-constant ACS_CKBOARD #\a) ; checker board (stipple) 
-(define-exported-constant ACS_DEGREE #\f) ; degree symbol 
-(define-exported-constant ACS_PLMINUS #\g) ; plus/minus 
-(define-exported-constant ACS_BULLET #\~) ; bullet 
+(define-exported-constant ACS_LLCORNER #\m) ; lower left corner
+(define-exported-constant ACS_URCORNER #\k) ; upper right corner
+(define-exported-constant ACS_LRCORNER #\j) ; lower right corner
+(define-exported-constant ACS_LTEE #\t) ; tee pointing right
+(define-exported-constant ACS_RTEE #\u) ; tee pointing left
+(define-exported-constant ACS_BTEE #\v) ; tee pointing up
+(define-exported-constant ACS_TTEE #\w) ; tee pointing down
+(define-exported-constant ACS_HLINE #\q) ; horizontal line
+(define-exported-constant ACS_VLINE #\x) ; vertical line
+(define-exported-constant ACS_PLUS #\n) ; large plus or crossover
+(define-exported-constant ACS_S1 #\o) ; scan line 1
+(define-exported-constant ACS_S9 #\s) ; scan line 9
+(define-exported-constant ACS_DIAMOND #\`) ; diamond
+(define-exported-constant ACS_CKBOARD #\a) ; checker board (stipple)
+(define-exported-constant ACS_DEGREE #\f) ; degree symbol
+(define-exported-constant ACS_PLMINUS #\g) ; plus/minus
+(define-exported-constant ACS_BULLET #\~) ; bullet
 
 
 ;; default_colors
@@ -1704,10 +1704,11 @@ see printw for examples."
 
 
 ;; variables
-(export '(*COLORS* *COLOR-PAIRS* *LINES* *COLS* *TABSIZE* 
+(export '(*COLORS* *COLOR-PAIRS* *LINES* *COLS* *TABSIZE*
 	  *ECSDELAY* *STDSCR* *CURSCR* *NEWSCR*))
 
 (cffi:defcvar ("COLORS" *COLORS* :library libcurses) :int)
+(cffi:defcvar ("COLOR_PAIRS" *COLOR-PAIRS* :library libcurses) :int)
 (cffi:defcvar ("COLOR_PATHS" *COLOR-PATHS* :library libcurses) :int)
 
 (cffi:defcvar ("LINES" *LINES* :library libcurses) :int)
