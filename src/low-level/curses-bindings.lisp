@@ -1720,6 +1720,9 @@ see printw for examples."
 (cffi:defcvar ("curscr" *CURSCR* :library libcurses) window-ptr)
 (cffi:defcvar ("newscr" *NEWSCR* :library libcurses) window-ptr)
 
+(cffi:defcvar ("acs_map" *ACS-MAP* :library libcurses) (:pointer chtype))
+(export '*acs-map*)
+
 
 ;; window
 (define-exported-cfuns ("newwin")

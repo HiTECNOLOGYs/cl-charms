@@ -103,3 +103,10 @@ If INTERPRET-CONTROL-CHARACTERS is T, then control characters like Ctrl-C will b
 (defun disable-non-blocking-mode (window)
   "Disable non-blocking mode for the window WINDOW. This will cause character input to block."
   (check-status (charms/ll:nodelay (window-pointer window) charms/ll:FALSE)))
+
+(defun enable-colors ()
+  "If the terminal supports colors, start-color is called. Returns t if successful, nil otherwise."
+  (check-status
+   (if (= (cl-charms/low-level:has-colors) cl-charms/low-level:FALSE)
+	   nil
+	   (cl-charms/low-level:start-color))))
