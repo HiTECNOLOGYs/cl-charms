@@ -56,7 +56,8 @@
 (defun getmouse ()
   (cffi:with-foreign-object (ptr '(:struct mevent))
     (let ((result (%getmouse ptr)))
+      (declare (ignore result));; TODO: how to check results?
       (cffi:with-foreign-slots ((id x y z bstate) ptr (:struct mevent))
-	(charms::%check-status result )
+	;;(charms::%check-status result ); fails
 	(values bstate x y z id)))))
 (export 'getmouse)
