@@ -25,10 +25,15 @@
 
 ;;==============================================================================
 ;; C-prototype: mmask_t mousemask(mmask_t newmask, mmask_t *oldmask);
-(define-exported-cfuns ("mousemask")
-    :unsigned-long
+(cffi:defcfun ("mousemask" %mousemask) :unsigned-long
   (newmask :unsigned-long)
   (oldmask :pointer))
+;;------------------------------------------------------------------------------
+(defun mousemask (newmask)
+  "set newmask as mousemask, returning old one"
+  (cffi:with-foreign-object (oldmask :unsigned-long)
+    (%mousemask newmask oldmask)
+    (cffi:mem-ref oldmask :unsigned-long)))
 ;;==============================================================================
 ;; C-prototype: typedef struct
 ;;        {
