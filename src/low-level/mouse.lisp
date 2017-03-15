@@ -57,6 +57,6 @@
   (cffi:with-foreign-object (ptr '(:struct mevent))
     (let ((result (%getmouse ptr)))
       (cffi:with-foreign-slots ((id x y z bstate) ptr (:struct mevent))
-	(cl-charms::%check-status result )
+	(charms::%check-status result )
 	(values bstate x y z id)))))
 (export 'getmouse)
