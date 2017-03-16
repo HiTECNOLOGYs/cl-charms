@@ -34,6 +34,7 @@
   (cffi:with-foreign-object (oldmask :unsigned-long)
     (%mousemask newmask oldmask)
     (cffi:mem-ref oldmask :unsigned-long)))
+(export 'mousemask)
 ;;==============================================================================
 ;; C-prototype: typedef struct
 ;;        {
