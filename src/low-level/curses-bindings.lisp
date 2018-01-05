@@ -33,7 +33,18 @@
 
 (in-package #:cl-charms/low-level)
 
-#+sb-unicode
+;;; Based on a snippet taken from UIOP (MIT license)
+#+(or allegro clasp clisp clozure cmucl ecl mkcl mkcl sbcl)
+(eval-when (:load-toplevel :compile-toplevel :execute)
+  (when (and #+allegro (member :ics *features*)
+             #+(or clasp clisp cmucl ecl mkcl) (member :unicode *features*)
+             #+clozure (member :openmcl-unicode-strings *features*)
+             #+sbcl (member :sb-unicode *features*))
+    ;; Check for unicode at runtime, so that a hypothetical FASL compiled with unicode
+    ;; but loaded in a non-unicode setting (e.g. on Allegro) won't tell a lie.
+    (pushnew :unicode *features*)))
+
+#+unicode
 (cffi:define-foreign-library libcurses
   (:darwin (:or "libncurses.dylib" "libcurses.dylib"))
   (:unix (:or "libncursesw.so.6"
@@ -42,7 +53,7 @@
   (:windows (:or "pdcurses" "libcurses"))
   (t (:default "libcurses")))
 
-#-sb-unicode
+#-unicode
 (cffi:define-foreign-library libcurses
   (:darwin (:or "libncurses.dylib"
                 "libcurses.dylib"))
@@ -88,7 +99,7 @@
 (cffi:defctype file-ptr :pointer)
 (cffi:defctype screen-ptr :pointer)
 (cffi:defctype window-ptr :pointer)
-#+sb-unicode
+#+unicode
 (cffi:defctype wchar :unsigned-short) ; from ncurses.h
 
 
@@ -734,12 +745,12 @@
 ;; get_wch
 
 ;; C Prototype: int get_wch(wint_t *wch);
-#+sb-unicode
+#+unicode
 (cffi:defcfun (c-get-wch "get_wch")
     :int
   (target (:pointer :unsigned-int)))
 
-#+sb-unicode
+#+unicode
 (progn
   (export 'get-wch)
   (defun get-wch ()
@@ -752,12 +763,12 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
               (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
 ;; C Prototype: int wget_wch(WINDOW *win, wint_t *wch);
-#+sb-unicode
+#+unicode
 (cffi:defcfun (c-wget-wch "wget_wch") :int
   (win window-ptr)
   (target (:pointer :unsigned-int)))
 
-#+sb-unicode
+#+unicode
 (progn
   (export 'wget-wch)
   (defun wget-wch (win)
@@ -770,13 +781,13 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
               (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
 ;; C Prototype: int mvget_wch(int y, int x, wint_t *wch);
-#+sb-unicode
+#+unicode
 (cffi:defcfun (c-mvget-wch "mvget_wch") :int
   (y :int)
   (x :int)
   (target (:pointer wchar)))
 
-#+sb-unicode
+#+unicode
 (progn
   (export 'mvget-wch)
   (defun mvget-wch (y x)
@@ -789,14 +800,14 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
               (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
 ;; C Prototype: int mvwget_wch(WINDOW *win, int y, int x, wint_t *wch);
-#+sb-unicode
+#+unicode
 (cffi:defcfun (c-mvwget-wch "mvwget_wch") :int
   (win window-ptr)
   (y :int)
   (x :int)
   (target (:pointer :unsigned-int)))
 
-#+sb-unicode
+#+unicode
 (progn
   (export 'mvwget-wch)
   (defun mvwget-wch (win y x)
@@ -809,7 +820,7 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
               (t (values (cffi:mem-ref ch :unsigned-int) result)))))))
 
 ;; C Prototype: int unget_wch(const wchar_t wch);
-#+sb-unicode
+#+unicode
 (define-exported-cfuns ("unget_wch")
     :int
   (wch wchar))
