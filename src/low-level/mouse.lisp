@@ -21,6 +21,8 @@
 (define-exported-constant BUTTON_CTRL           #x1000000)
 (define-exported-constant BUTTON_SHIFT          #x2000000)
 (define-exported-constant BUTTON_ALT            #x4000000)
+
+(define-exported-constant ALL_MOUSE_EVENTS      #x7ffffff)
 (define-exported-constant REPORT_MOUSE_POSITION #x8000000)
 
 ;;==============================================================================
@@ -86,10 +88,15 @@ state data and screen-relative character-cell coordinates."
 (defun getmouse ()
   (cffi:with-foreign-object (ptr '(:struct mevent))
     (let ((result (%getmouse ptr)))
-      ;;(declare (ignore result));; TODO: how to check results?
+      ;; Terminal reports all mouse events (depending on terminal mode which may
+      ;; be customized with escape sequences) and they are returned from getch
+      ;; and curses library can't do anything about it - if such event is masked
+      ;; with mousemask then result is ERR because there are no events waiting
+      ;; in queue when getmouse is called. This is expected. -- 2018-02-02 jd
+      (when (eql result ERR)
+        (error (or error-message "Error in curses call.")))
       (cffi:with-foreign-slots ((id x y z bstate) ptr (:struct mevent))
-	;;(charms::%check-status result ); fails
-	(values bstate x y z id)))))
+        (values bstate x y z id)))))
 (export 'getmouse)
 
 ;; C-prototype: bool wenclose(const WINDOW *win, int y, int x);
