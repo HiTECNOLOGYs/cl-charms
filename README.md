@@ -117,16 +117,19 @@ one-to-one equivalent to standard curses functions.
 The high-level library is contained within the package `cl-charms`,
 nicknamed `charms`.
 
-Examples
-========
+Examples and Tutorials
+======================
 
-There are currently two examples.
+There are currently two examples included with the source code, all of which you can find in the [examples](examples/) directory.
 
 You might also want to check out the following applications written
 using `cl-charms`:
 
 * CHARMLIFE, a viewer for Conway's [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life), exponentially accelerated with the HASHLIFE algorithm ([video](https://youtu.be/YO3KIHjcrrs), [source](https://bitbucket.org/tarballs_are_good/lisp-random/src/master/hashlife/))
 * The game "Snake" ([video](https://www.youtube.com/watch?v=Gpm1K1jtwuA), [source](https://bitbucket.org/tarballs_are_good/lisp-random/src/master/snake.lisp))
+* Steve Losh's Lisp Game Jam entry [silt2](https://bitbucket.org/sjl/silt2/) ([blog post](http://stevelosh.com/blog/2016/08/lisp-jam-postmortem))
+
+Daniel Kochmanski has written a nice tutorial about CL-CHARMS [here](http://turtleware.eu/posts/cl-charms-crash-course.html).
 
 Timer
 -----
