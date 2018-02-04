@@ -93,8 +93,7 @@ state data and screen-relative character-cell coordinates."
       ;; and curses library can't do anything about it - if such event is masked
       ;; with mousemask then result is ERR because there are no events waiting
       ;; in queue when getmouse is called. This is expected. -- 2018-02-02 jd
-      (when (eql result ERR)
-        (error (or error-message "Error in curses call.")))
+      (when (eql result ERR) (error "Error in curses call getmouse."))
       (cffi:with-foreign-slots ((id x y z bstate) ptr (:struct mevent))
         (values bstate x y z id)))))
 (export 'getmouse)
