@@ -1,6 +1,6 @@
 ;;;; This file is part of cl-charms, providing CFFI bindings to libcurses.
 ;;;;
-;;;; Copyright (c) 2014-2015 Robert Smith <quad@symbo1ics.com>
+;;;; Copyright (c) 2014-2018 Robert Smith <quad@symbo1ics.com>
 ;;;; Copyright (c) 2014 Mark Fedurin <hitecnologys@gmail.com>
 ;;;; Copyright (c) 2010 Abhishek Reddy <http://abhishek.geek.nz>
 ;;;;
@@ -97,10 +97,10 @@
      (export ',name)))
 
 
-;; types
-;;  note: bool definition is moved into grovel file (curses-grovel.lisp)
+;;; types
+
+;;  note: bool & chtype definitions are in the grovel file (curses-grovel.lisp)
 (cffi:defctype char-ptr :pointer)
-(cffi:defctype chtype :int)
 (cffi:defctype file-ptr :pointer)
 (cffi:defctype screen-ptr :pointer)
 (cffi:defctype window-ptr :pointer)
