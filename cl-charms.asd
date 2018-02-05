@@ -32,8 +32,8 @@
 
 (asdf:defsystem #:cl-charms
   :version (:read-file-form "version.lisp-expr")
-  :maintainer "Mark Fedurin <hitecnologys@gmail.com>"
-  :author "Abhishek Reddy <abhishek@abhishek.geek.nz>"
+  :maintainer "Mark Fedurin <hitecnologys@gmail.com>, Robert Smith <robert@stylewarning.com>"
+  :author "Abhishek Reddy <abhishek@abhishek.geek.nz>, et al."
   :description "CFFI bindings for curses."
   :license "MIT License (See COPYING)"
   :depends-on (#:cffi
@@ -41,7 +41,8 @@
   :defsystem-depends-on (#:cffi-grovel) ; for processing :cffi-grovel-file
   :serial t
   :pathname "src/"
-  :components ((:module "low-level"
+  :components ((:file "features")
+               (:module "low-level"
                 :serial t
                 :components ((:file "package")
                              (:cffi-grovel-file "curses-grovel")
