@@ -43,8 +43,9 @@
       (error (or error-message "Error in curses call."))
       value))
 
+(declaim (special *standard-window*))
 (declaim (inline resolve-window))
 (defun resolve-window (window-designator)
   (if (eq t window-designator)
-    *standard-window*
-    window-designator))
+      *standard-window*
+      window-designator))
