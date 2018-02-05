@@ -47,7 +47,7 @@
                 :components ((:file "package")
                              (:cffi-grovel-file "curses-grovel")
                              (:file "curses-bindings")
-			     (:file "mouse")))
+                             (:file "mouse")))
                (:module "high-level"
                 :serial t
                 :components ((:file "package")

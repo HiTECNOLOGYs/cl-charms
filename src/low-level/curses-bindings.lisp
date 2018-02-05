@@ -410,44 +410,44 @@
 ;;
 ;; cchar_t * ???
 ;; C Prototype: int border_set(
-;;	  const cchar_t *ls, const cchar_t *rs,
-;;	  const cchar_t *ts, const cchar_t *bs,
+;;        const cchar_t *ls, const cchar_t *rs,
+;;        const cchar_t *ts, const cchar_t *bs,
 ;;        const cchar_t *tl, const cchar_t *tr,
-;;	  const cchar_t *bl, const cchar_t *br );
+;;        const cchar_t *bl, const cchar_t *br );
 ;; C Prototype: int wborder_set(
-;;	  WINDOW *win,
-;;	  const cchar_t *ls, const cchar_t *rs,
-;;	  const cchar_t *ts, const cchar_t *bs,
-;;	  const cchar_t *tl, const cchar_t *tr,
-;;	  const cchar_t *bl, const cchar_t *br);
+;;        WINDOW *win,
+;;        const cchar_t *ls, const cchar_t *rs,
+;;        const cchar_t *ts, const cchar_t *bs,
+;;        const cchar_t *tl, const cchar_t *tr,
+;;        const cchar_t *bl, const cchar_t *br);
 ;; C Prototype: int box_set(
-;;	  WINDOW *win,
-;;	  const cchar_t *verch,
-;;	  const cchar_t *horch);
+;;        WINDOW *win,
+;;        const cchar_t *verch,
+;;        const cchar_t *horch);
 ;; C Prototype: int hline_set(
-;;	  const cchar_t *wch, int n);
+;;        const cchar_t *wch, int n);
 ;; C Prototype: int whline_set(
-;;	  WINDOW *win,
-;;	  const cchar_t *wch, int n);
+;;        WINDOW *win,
+;;        const cchar_t *wch, int n);
 ;; C Prototype: int mvhline_set(
 ;;         int y, int x,
-;;	  const cchar_t *wch, int n);
+;;        const cchar_t *wch, int n);
 ;; C Prototype: int mvwhline_set(
-;;	  WINDOW *win,
+;;        WINDOW *win,
 ;;         int y, int x,
-;;	  const cchar_t *wch, int n);
+;;        const cchar_t *wch, int n);
 ;; C Prototype: int vline_set(
-;;	  const cchar_t *wch, int n);
+;;        const cchar_t *wch, int n);
 ;; C Prototype: int wvline_set(
-;;	  WINDOW *win,
-;;	  const cchar_t *wch, int n);
+;;        WINDOW *win,
+;;        const cchar_t *wch, int n);
 ;; C Prototype: int mvvline_set(
 ;;         int y, int x,
-;;	  const cchar_t *wch, int n);
+;;        const cchar_t *wch, int n);
 ;; C Prototype: int mvwvline_set(
-;;	  WINDOW *win,
+;;        WINDOW *win,
 ;;         int y, int x,
-;;	  const cchar_t *wch, int n);
+;;        const cchar_t *wch, int n);
 
 
 ;; clear
@@ -839,18 +839,18 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 ;; TODO:
 ;;
 ;; C Prototype: int getcchar(
-;;	       const cchar_t *wcval,
-;;	       wchar_t *wch,
-;;	       attr_t *attrs,
-;;	       short *color_pair,
-;;	       void *opts );
+;;             const cchar_t *wcval,
+;;             wchar_t *wch,
+;;             attr_t *attrs,
+;;             short *color_pair,
+;;             void *opts );
 
 ;; C Prototype: int setcchar(
-;;	       cchar_t *wcval,
-;;	       const wchar_t *wch,
-;;	       const attr_t attrs,
-;;	       short color_pair,
-;;	       void *opts );
+;;             cchar_t *wcval,
+;;             const wchar_t *wch,
+;;             const attr_t attrs,
+;;             short color_pair,
+;;             void *opts );
 
 
 ;; getch
@@ -1310,9 +1310,9 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 ;;
 ;; C-prototype: typedef struct
 ;;        {
-;; 	   short id;	     /* ID to distinguish multiple devices */
-;; 	   int x, y, z;      /* event coordinates */
-;; 	   mmask_t bstate;   /* button state bits */
+;;         short id;         /* ID to distinguish multiple devices */
+;;         int x, y, z;      /* event coordinates */
+;;         mmask_t bstate;   /* button state bits */
 ;;        }
 ;;        MEVENT;
 ;; C-prototype: int getmouse(MEVENT *event);
@@ -1712,7 +1712,7 @@ see printw for examples."
 
 ;; variables
 (export '(*COLORS* *COLOR-PAIRS* *LINES* *COLS* *TABSIZE*
-	  *ECSDELAY* *STDSCR* *CURSCR* *NEWSCR*))
+          *ECSDELAY* *STDSCR* *CURSCR* *NEWSCR*))
 
 (cffi:defcvar ("COLORS" *COLORS* :library libcurses) :int)
 (cffi:defcvar ("COLOR_PAIRS" *COLOR-PAIRS* :library libcurses) :int)
