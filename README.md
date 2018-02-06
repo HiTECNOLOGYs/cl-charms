@@ -176,9 +176,10 @@ example) is:
 1. run lisp from terminal
 2. `(ql:quickload '(:swank) :silent t)` ;; from terminal
 3. `(swank:create-server :port 5555 :dont-close t)` ;; from terminal, too
-4. go to emacs and M-x slime-connect RET localhost RET 5555 RET
-5. `(ql:quickload :cl-charms-timer)` ;; from emacs repl
-6. `(charms-timer:main)` ;; from emacs repl
+4. `(loop (sleep 1))` ;; from terminal, prevents read-line in console REPL
+5. go to emacs and M-x slime-connect RET localhost RET 5555 RET
+6. `(ql:quickload :cl-charms-timer)` ;; from emacs repl
+7. `(charms-timer:main)` ;; from emacs repl
 
 Now you should see timer running on terminal.
 
