@@ -90,6 +90,7 @@
 
 ;;  note: bool & chtype definitions are in the grovel file (curses-grovel.lisp)
 (cffi:defctype char-ptr :pointer)
+(cffi:defctype chstr (:pointer chtype))
 (cffi:defctype file-ptr :pointer)
 (cffi:defctype screen-ptr :pointer)
 (cffi:defctype window-ptr :pointer)
@@ -150,35 +151,35 @@
 ;; addchstr
 (define-exported-cfuns ("addchstr")
     :int
-  (ch chtype))
+  (chstr chstr))
 
 (define-exported-cfuns ("addchnstr")
     :int
-  (ch chtype)
+  (chstr chstr)
   (n :int))
 
 (define-exported-cfuns ("waddchstr")
     :int
   (win window-ptr)
-  (ch chtype))
+  (chstr chstr))
 
 (define-exported-cfuns ("waddchnstr")
     :int
   (win window-ptr)
-  (ch chtype)
+  (chstr chstr)
   (n :int))
 
 (define-exported-cfuns ("mvaddchstr")
     :int
   (y :int)
   (x :int)
-  (ch chtype))
+  (chstr chstr))
 
 (define-exported-cfuns ("mvaddchnstr")
     :int
   (y :int)
   (x :int)
-  (ch chtype)
+  (chstr chstr)
   (n :int))
 
 (define-exported-cfuns ("mvwaddchstr")
@@ -186,14 +187,14 @@
   (win window-ptr)
   (y :int)
   (x :int)
-  (ch chtype))
+  (chstr chstr))
 
 (define-exported-cfuns ("mvwaddchnstr")
     :int
   (win window-ptr)
   (y :int)
   (x :int)
-  (ch chtype)
+  (chstr chstr)
   (n :int))
 
 
@@ -1016,43 +1017,50 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 ;; inchstr
 (define-exported-cfuns ("inchstr")
     :int
-  (chstr char-ptr))
+  (chstr chstr))
 
 (define-exported-cfuns ("inchnstr")
     :int
-  (chstr char-ptr)
+  (chstr chstr)
   (n :int))
 
 (define-exported-cfuns ("winchstr")
     :int
   (win window-ptr)
-  (chstr char-ptr))
+  (chstr chstr))
 
 (define-exported-cfuns ("winchnstr")
     :int
   (win window-ptr)
-  (chstr char-ptr)
+  (chstr chstr)
   (n :int))
 
 (define-exported-cfuns ("mvinchstr")
     :int
   (y :int)
   (x :int)
-  (chstr char-ptr))
+  (chstr chstr))
+
+(define-exported-cfuns ("mvinchnstr")
+    :int
+  (y :int)
+  (x :int)
+  (chstr chstr)
+  (n :int))
 
 (define-exported-cfuns ("mvwinchstr")
     :int
   (win window-ptr)
   (y :int)
   (x :int)
-  (chstr char-ptr))
+  (chstr chstr))
 
 (define-exported-cfuns ("mvwinchnstr")
     :int
   (win window-ptr)
   (y :int)
   (x :int)
-  (chstr char-ptr)
+  (chstr chstr)
   (n :int))
 
 
