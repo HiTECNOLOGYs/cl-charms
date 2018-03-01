@@ -1712,7 +1712,7 @@ see printw for examples."
 
 ;; variables
 (export '(*COLORS* *COLOR-PAIRS* *LINES* *COLS* *TABSIZE*
-          *ECSDELAY* *STDSCR* *CURSCR* *NEWSCR*))
+          *ESCDELAY* *STDSCR* *CURSCR* *NEWSCR*))
 
 (cffi:defcvar ("COLORS" *COLORS* :library libcurses) :int)
 (cffi:defcvar ("COLOR_PAIRS" *COLOR-PAIRS* :library libcurses) :int)
