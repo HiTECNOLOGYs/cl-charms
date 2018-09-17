@@ -471,6 +471,11 @@
 
 ;; Win32 TODO: implement defun based on macro in pdcurses' curses.h
 
+#+(or win32 mswindows)
+(progn
+  (export 'color-pair)
+  (defun color-pair (n) (logand (ash n 24) #xff000000)))
+
 (define-exported-cfuns ("init_pair")
     :int
   (pair :short)
@@ -864,8 +869,10 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
     :int)
 
 #+(or win32 mswindows)
-(defun getch ()
-  (wgetch *stdscr*))
+(progn
+  (export 'getch)
+  (defun getch ()
+    (wgetch *stdscr*)))
 
 (define-exported-cfuns ("mvgetch")
     :int
@@ -1523,6 +1530,11 @@ see printw for examples."
     :int
   (lines :int)
   (columns :int))
+
+#+(or win32 mswindows)
+(progn
+  (export 'resizeterm)
+  (setf (fdefinition 'resizeterm) #'resize-term))
 
 
 ;; scanw
