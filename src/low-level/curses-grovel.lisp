@@ -6,3 +6,4 @@
 (ctype bool "bool") ;; grovel it, because sizeof(bool) is implementation-dependent
 
 (ctype chtype "chtype")
+(ctype attr_t "attr_t")
