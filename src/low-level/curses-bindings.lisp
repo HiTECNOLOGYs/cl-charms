@@ -289,23 +289,78 @@
 (define-exported-cfuns ("wstandend" "wstandout")
     :int)
 
-;; TODO:
-;;
-;; We need to define a attr_t structure type......
-;;
-;; C Prototype: int attr_get(attr_t *attrs, short *pair, void *opts);
-;; C Prototype: int wattr_get(WINDOW *win, attr_t *attrs, short *pair, void *opts);
-;; C Prototype: int attr_off(attr_t attrs, void *opts);
-;; C Prototype: int wattr_off(WINDOW *win, attr_t attrs, void *opts);
-;; C Prototype: int attr_on(attr_t attrs, void *opts);
-;; C Prototype: int wattr_on(WINDOW *win, attr_t attrs, void *opts);
-;; C Prototype: int attr_set(attr_t attrs, short pair, void *opts);
-;; C Prototype: int wattr_set(WINDOW *win, attr_t attrs, short pair, void *opts);
-;; C Prototype: int chgat(int n, attr_t attr, short color, const void *opts)
-;; C Prototype: int wchgat(WINDOW *win, int n, attr_t attr, short color, const void *opts)
-;; C Prototype: int mvchgat(int y, int x, int n, attr_t attr, short color, const void *opts)
-;; C Prototype: int mvwchgat(WINDOW *win, int y, int x, int n, attr_t attr, short color, const void *opts)
 
+;; attr
+(define-exported-cfuns ("attr_get")
+    :int
+  (attrs (:pointer attr_t))
+  (pair (:pointer :short))
+  (opts :pointer))
+
+(define-exported-cfuns ("attr_set")
+    :int
+  (attrs attr_t)
+  (pair (:pointer :short))
+  (opts :pointer))
+
+(define-exported-cfuns ("wattr_get")
+    :int
+  (win window-ptr)
+  (attrs (:pointer attr_t))
+  (pair (:pointer :short))
+  (opts :pointer))
+
+(define-exported-cfuns ("wattr_set")
+    :int
+  (win window-ptr)
+  (attrs attr_t)
+  (pair (:pointer :short))
+  (opts :pointer))
+
+(define-exported-cfuns ("attr_off" "attr_on")
+    :int
+  (attrs attr_t)
+  (opts :pointer))
+
+(define-exported-cfuns ("wattr_off" "wattr_on")
+    :int
+  (win window-ptr)
+  (attrs attr_t)
+  (opts :pointer))
+
+(define-exported-cfuns ("chgat")
+    :int
+  (n :int)
+  (attr attr_t)
+  (color :short)
+  (opts :pointer))
+
+(define-exported-cfuns ("wchgat")
+    :int
+  (win window-ptr)
+  (n :int)
+  (attr attr_t)
+  (color :short)
+  (opts :pointer))
+
+(define-exported-cfuns ("mvchgat")
+    :int
+  (y :int)
+  (x :int)
+  (n :int)
+  (attr attr_t)
+  (color :short)
+  (opts :pointer))
+
+(define-exported-cfuns ("mvwchgat")
+    :int
+  (win window-ptr)
+  (y :int)
+  (x :int)
+  (n :int)
+  (attr attr_t)
+  (color :short)
+  (opts :pointer))
 
 ;; beep
 (define-exported-cfuns ("beep" "flash")
