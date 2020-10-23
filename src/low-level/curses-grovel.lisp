@@ -1,4 +1,9 @@
 ;; (include "/usr/include/ncurses.h")
+#+use-curses-header
+(include "curses.h")
+#+use-pdcurses-header
+(include "pdcurses.h")
+#-(or use-curses-header use-pdcurses-header)
 (include "ncurses.h")
 
 (in-package #:cl-charms/low-level)
