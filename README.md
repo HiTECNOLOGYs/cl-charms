@@ -75,6 +75,14 @@ help test and realize this.
 no-frills interface atop: nothing more, nothing less. For
 full-featured TUI see: https://bitbucket.org/naryl/cl-tui
 
+The header file of curses library used by `cl-charms` can be selected
+by `*features*`. Available feature names are as follows.
+|feature name        |header file|remarks  |
+|--------------------|-----------|---------|
+|:use-curses-header  |curses.h   |         |
+|:use-pdcurses-header|pdcurses.h |         |
+|(none)              |ncurses.h  |(default)|
+
 
 Windows
 -------
