@@ -40,7 +40,9 @@
               "libncursesw.so.5"
               "libncursesw.so.14.0"
               "libncursesw.so"))
-  (:windows (:or "pdcurses" "libcurses"))
+  (:windows (:or "libpdcurses"
+		 "pdcurses"
+		 "libcurses"))
   (t (:default "libcurses")))
 
 #-unicode
@@ -56,7 +58,8 @@
               "libncursesw.so.14.0"
               "libncurses.so"
               "libcurses"))
-  (:windows (:or "pdcurses"
+  (:windows (:or "libpdcurses"		;MSYS installed pdcurses
+		 "pdcurses"
                  "libcurses"))
   (t (:default "libcurses")))
 
