@@ -1,5 +1,6 @@
 ;; (include "/usr/include/ncurses.h")
-(include "ncurses.h")
+#-(or windows win32) (include "ncurses.h")
+#+(or windows win32) (include "pdcurses.h")
 
 (in-package #:cl-charms/low-level)
 
