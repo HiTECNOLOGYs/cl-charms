@@ -54,6 +54,7 @@ Portability
 `cl-charms` has been tested to work to a reasonable extent (e.g.,
 example code runs) on the following platforms:
 
+* SBCL 2.3.2 on Ubuntu 22.04.2 LTS (jammy jellyfish) x86-64
 * SBCL 1.1.8--1.2.9 on Gentoo Linux (3.13.6-hardened-r3--3.15.6-hardened) x86-64
 * SBCL 1.2.3.15-4704124 on OS X 10.10 (Yosemite) x86-64
 * SBCL 1.1.14.debian on Ubuntu 14.04.2 LTS (trusty) x86
@@ -73,7 +74,7 @@ help test and realize this.
 
 `cl-charms` is supposed to be only bindings along with a separate,
 no-frills interface atop: nothing more, nothing less. For
-full-featured TUI see: https://bitbucket.org/naryl/cl-tui
+full-featured TUI see: https://github.com/naryl/cl-tui
 
 
 Windows
