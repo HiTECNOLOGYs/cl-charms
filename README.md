@@ -54,6 +54,7 @@ Portability
 `cl-charms` has been tested to work to a reasonable extent (e.g.,
 example code runs) on the following platforms:
 
+* SBCL 2.3.2 on Debian 11 x86-64
 * SBCL 2.3.2 on Ubuntu 22.04.2 LTS (jammy jellyfish) x86-64
 * SBCL 1.1.8--1.2.9 on Gentoo Linux (3.13.6-hardened-r3--3.15.6-hardened) x86-64
 * SBCL 1.2.3.15-4704124 on OS X 10.10 (Yosemite) x86-64
@@ -128,7 +129,7 @@ using `cl-charms`:
 
 * CHARMLIFE, a viewer for Conway's [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life), exponentially accelerated with the HASHLIFE algorithm ([video](https://youtu.be/YO3KIHjcrrs), [source](https://bitbucket.org/tarballs_are_good/lisp-random/src/master/hashlife/))
 * The game "Snake" ([video](https://www.youtube.com/watch?v=Gpm1K1jtwuA), [source](https://bitbucket.org/tarballs_are_good/lisp-random/src/master/snake.lisp))
-* Steve Losh's Lisp Game Jam entry [silt2](https://bitbucket.org/sjl/silt2/) ([blog post](http://stevelosh.com/blog/2016/08/lisp-jam-postmortem))
+* Steve Losh's Lisp Game Jam entry [silt2](https://github.com/sjl/silt2), [itch](https://itch.io/jam/august-2016-lisp-game-jam/rate/79461), ([blog post](http://stevelosh.com/blog/2016/08/lisp-jam-postmortem))
 
 Daniel Kochmanski has written a nice tutorial about CL-CHARMS [here](http://turtleware.eu/posts/cl-charms-crash-course.html).
 
