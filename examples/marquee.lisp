@@ -1,6 +1,6 @@
-(defpackage charms-marquee
-  (:use :cl)
-  (:export :main))
+(defpackage #:charms-marquee
+  (:use #:cl)
+  (:export #:main))
 (in-package :charms-marquee)
 
 (defclass marquee ()
@@ -13,16 +13,15 @@
   (:documentation "A marquee is like a scrolling text thing. A string of characters moves through
 a viewport. The viewport constrains the text so you only see a little bit at a time."))
 
-(defmethod marquee-viewport :before ((marquee marquee))
-  "Before getting the MARQUEE viewport (the text that is shown at a given time), the buffer
-needs to be padded in case the text doesn't fill the MARQUEE size"
-  (marquee-pad-buffer marquee))
+;; (defmethod marquee-viewport :before ((marquee marquee))
+;;   "Before getting the MARQUEE viewport (the text that is shown at a given time), the buffer
+;; needs to be padded in case the text doesn't fill the MARQUEE size"
+;;  ( )
 
 (defmethod marquee-viewport ((marquee marquee))
   "Evaluates to the text currently shown in the viewport for the given MARQUEE."
-  (with-slots (size buffer)
-      marquee
-    (subseq buffer 0 size)))
+  (marquee-pad-buffer marquee)
+  (subseq (slot-value marquee 'buffer) 0 (slot-value marquee 'size)))
 
 (defmethod marquee-pad-buffer ((marquee marquee))
   "When the size of the MARQUEE is greater than the supplied text, the buffer needs to be padded
