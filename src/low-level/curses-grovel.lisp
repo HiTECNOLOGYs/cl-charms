@@ -1,6 +1,15 @@
-;; (include "/usr/include/ncurses.h")
-#-(or windows win32) (include "ncurses.h")
-#+(or windows win32) (include "pdcurses.h")
+#+(and (not use-menu-h)
+       (not (or windows win32)))
+(include "ncurses.h")
+
+#+(and (not use-menu-h)
+       (or windows win32))
+(include "pdcurses.h")
+
+#+use-menu-h
+(progn
+  (include "/usr/include/menu.h")
+  (cc-flags "-lmenu -lncurses"))
 
 (in-package #:cl-charms/low-level)
 
