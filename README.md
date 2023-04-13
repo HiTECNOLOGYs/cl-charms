@@ -157,6 +157,18 @@ A simple ASCII art drawing program.
 * (charms-paint:main)
 ```
 
+Marquee
+-------
+
+![](marquee.png)
+
+A program that horizontally scrolls text across the screen.
+
+```lisp
+* (ql:quickload :cl-charms-marquee)
+* (charms-marquee:main)
+```
+
 Testing
 =======
 
