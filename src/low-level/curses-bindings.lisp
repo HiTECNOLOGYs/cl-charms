@@ -108,6 +108,10 @@
 (cffi:defctype window-ptr :pointer)
 #+unicode
 (cffi:defctype wchar :unsigned-short) ; from ncurses.h
+#+use-menu-h
+(progn
+  (cffi:defctype item-ptr :pointer)
+  (cffi:defctype menu-ptr :pointer))
 
 
 ;; add_wch

@@ -37,5 +37,7 @@
   (:export
    #:window-ptr                         ; CFFI type
    #:screen-ptr                         ; CFFI type
+   #:item-ptr
+   #:menu-ptr
    )
   )
