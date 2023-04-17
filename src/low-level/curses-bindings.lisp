@@ -689,6 +689,29 @@
 (define-exported-constant KEY_MOUSE       #o631)
 (define-exported-constant KEY_RESIZE      #o632)
 (define-exported-constant KEY_EVENT       #o633)
+(define-exported-constant KEY_MAX         #o777)
+
+#+use-menu-h
+(progn
+  (define-exported-constant REQ_LEFT_ITEM #o1000)
+  (define-exported-constant REQ_RIGHT_ITEM #o1001)
+  (define-exported-constant REQ_UP_ITEM #o1002)
+  (define-exported-constant REQ_DOWN_ITEM #o1003)
+  (define-exported-constant REQ_SCR_ULINE #o1004)
+  (define-exported-constant REQ_SCR_DLINE #o1005)
+  (define-exported-constant REQ_SCR_DPAGE #o1006)
+  (define-exported-constant REQ_SCR_UPAGE #o1007)
+  (define-exported-constant REQ_FIRST_ITEM #o1010)
+  (define-exported-constant REQ_LAST_ITEM #o1011)
+  (define-exported-constant REQ_NEXT_ITEM #o1012)
+  (define-exported-constant REQ_PREV_ITEM #o1013)
+  (define-exported-constant REQ_TOGGLE_ITEM #o1014)
+  (define-exported-constant REQ_CLEAR_PATTERN #o1015)
+  (define-exported-constant REQ_BACK_PATTERN #o1016)
+  (define-exported-constant REQ_NEXT_MATCH #o1017)
+  (define-exported-constant REQ_PREV_MATCH #o1020)
+  (define-exported-constant MIN_MENU_COMMAND REQ_LEFT_ITEM)
+  (define-exported-constant MAX_MENU_COMMAND REQ_PREV_MATCH))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; XSI attributes.  In the ncurses implementation, they are identical to the   ;;
