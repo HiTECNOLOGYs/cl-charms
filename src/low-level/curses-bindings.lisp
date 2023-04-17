@@ -45,6 +45,15 @@
 		 "libcurses"))
   (t (:default "libcurses")))
 
+#+(and unicode use-menu-h)
+(progn
+  (cffi:define-foreign-library libmenu
+    (:unix (:or "libmenu.so.5"
+                "libmenu.so.5.9"
+                "libmenu.so.6"
+                "libmenu.so.6.3")))
+  (cffi:use-foreign-library libmenu))
+
 #-unicode
 (cffi:define-foreign-library libcurses
   (:darwin (:or "libncurses.dylib"
