@@ -37,6 +37,9 @@
   (:export
    #:window-ptr                         ; CFFI type
    #:screen-ptr                         ; CFFI type
+   )
+  #+with-menu-h
+  (:export
    #:item-ptr
    #:menu-ptr
    )

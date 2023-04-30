@@ -1888,3 +1888,122 @@ see printw for examples."
   (win window-ptr)
   (lines :int)
   (columns :int))
+
+
+;; menu
+(progn
+  (define-exported-cfuns ("current_item")
+      item-ptr
+    (menu menu-ptr))
+
+  (define-exported-cfuns ("free_item")
+      :int
+    (item item-ptr))
+
+  (define-exported-cfuns ("free_menu")
+      :int
+    (menu menu-ptr))
+
+  (define-exported-cfuns ("item_count")
+      :int
+    (menu menu-ptr))
+
+  (define-exported-cfuns ("item_name" "item_description")
+      :string
+    (item item-ptr))
+
+  (define-exported-cfuns ("item_index")
+      :int
+    (item item-ptr))
+
+  ;; TODO:
+  ;; item_opts
+  ;; item_opts_on
+  ;; item_opts_off
+  ;; item_term
+  ;; item_userptr
+
+  (define-exported-cfuns ("item_value")
+      :boolean
+    (item item-ptr))
+
+  (define-exported-cfuns ("item_visible")
+      :boolean
+    (item item-ptr))
+
+  ;; TODO:
+  ;; menu_back
+  ;; menu_fore
+  ;; menu_format
+  ;; menu_grey
+  ;; menu_init
+
+  (define-exported-cfuns ("menu_driver")
+      :int
+    (menu menu-ptr)
+    (c :int))
+
+  (define-exported-cfuns ("menu_items")
+      :pointer ; returns (ITEM **)
+    (menu menu-ptr))
+
+  ;; TODO:
+  ;; menu_mark
+  ;; menu_opts
+  ;; menu_opts_off
+  ;; menu_opts_on
+
+  (define-exported-cfuns ("menu_pad")
+      :int
+    (menu menu-ptr))
+
+  (define-exported-cfuns ("menu_pattern")
+      char-ptr
+    (menu menu-ptr))
+
+  (define-exported-cfuns ("menu_request_by_name")
+      :int
+    (name char-ptr))
+
+  (define-exported-cfuns ("menu_request_name")
+      :int
+    (request :int))
+
+  (define-exported-cfuns ("menu_spacing")
+      :int
+    (menu menu-ptr)
+    (spc_description :int)
+    (spc_rows :int)
+    (spc_columns :int))
+
+  (define-exported-cfuns ("menu_sub")
+      window-ptr
+    (menu menu-ptr))
+
+  ;; TODO:
+  ;; menu_term
+  ;; menu_userptr
+  ;; menu_win
+  (define-exported-cfuns ("new_item")
+      item-ptr
+    (name char-ptr)
+    (description char-ptr))
+
+  (define-exported-cfuns ("new_menu")
+      menu-ptr
+    (items item-ptr))
+
+  (define-exported-cfuns ("set_menu_win")
+      :int
+    (menu menu-ptr)
+    (window window-ptr))
+
+  (define-exported-cfuns ("post_menu" "unpost_menu")
+      :int
+    (menu menu-ptr))
+
+  (define-exported-cfuns ("set_item_value")
+      :int
+    (item item-ptr)
+    (value :boolean))
+  )

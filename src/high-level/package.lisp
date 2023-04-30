@@ -43,7 +43,15 @@
    #:char-at-cursor                     ; FUNCTION
    #:char-at-point                      ; FUNCTION
    )
-  
+
+  ;; menues.lisp
+  #+with-menu-h
+  (:export
+   #:make-item                                 ; FUNCTION
+   #:make-menu                                ; FUNCTION
+   #:with-menu
+   )
+
   ;; cursor.lisp
   (:export
    #:cursor-position                    ; FUNCTION
