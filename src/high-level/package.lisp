@@ -49,7 +49,9 @@
   (:export
    #:make-item                                 ; FUNCTION
    #:make-menu                                ; FUNCTION
-   #:with-menu
+   #:menu-select
+   #:item-name
+   #:item-description
    )
 
   ;; cursor.lisp
