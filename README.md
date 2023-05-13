@@ -119,6 +119,15 @@ one-to-one equivalent to standard curses functions.
 The high-level library is contained within the package `cl-charms`,
 nicknamed `charms`.
 
+Features
+--------
+
+Enable `menu.h`, the curses extension for programming menus, by pushing `:use-menu-h` to `*features*`.
+
+```lisp
+(pushnew :use-menu-h *features*)
+```
+
 Examples and Tutorials
 ======================
 

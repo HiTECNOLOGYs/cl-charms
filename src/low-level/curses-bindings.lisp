@@ -45,6 +45,15 @@
 		 "libcurses"))
   (t (:default "libcurses")))
 
+#+(and unicode use-menu-h)
+(progn
+  (cffi:define-foreign-library libmenu
+    (:unix (:or "libmenu.so.5"
+                "libmenu.so.5.9"
+                "libmenu.so.6"
+                "libmenu.so.6.3")))
+  (cffi:use-foreign-library libmenu))
+
 #-unicode
 (cffi:define-foreign-library libcurses
   (:darwin (:or "libncurses.dylib"
@@ -99,6 +108,10 @@
 (cffi:defctype window-ptr :pointer)
 #+unicode
 (cffi:defctype wchar :unsigned-short) ; from ncurses.h
+#+use-menu-h
+(progn
+  (cffi:defctype item-ptr :pointer)
+  (cffi:defctype menu-ptr :pointer))
 
 
 ;; add_wch
@@ -680,6 +693,29 @@
 (define-exported-constant KEY_MOUSE       #o631)
 (define-exported-constant KEY_RESIZE      #o632)
 (define-exported-constant KEY_EVENT       #o633)
+(define-exported-constant KEY_MAX         #o777)
+
+#+use-menu-h
+(progn
+  (define-exported-constant REQ_LEFT_ITEM #o1000)
+  (define-exported-constant REQ_RIGHT_ITEM #o1001)
+  (define-exported-constant REQ_UP_ITEM #o1002)
+  (define-exported-constant REQ_DOWN_ITEM #o1003)
+  (define-exported-constant REQ_SCR_ULINE #o1004)
+  (define-exported-constant REQ_SCR_DLINE #o1005)
+  (define-exported-constant REQ_SCR_DPAGE #o1006)
+  (define-exported-constant REQ_SCR_UPAGE #o1007)
+  (define-exported-constant REQ_FIRST_ITEM #o1010)
+  (define-exported-constant REQ_LAST_ITEM #o1011)
+  (define-exported-constant REQ_NEXT_ITEM #o1012)
+  (define-exported-constant REQ_PREV_ITEM #o1013)
+  (define-exported-constant REQ_TOGGLE_ITEM #o1014)
+  (define-exported-constant REQ_CLEAR_PATTERN #o1015)
+  (define-exported-constant REQ_BACK_PATTERN #o1016)
+  (define-exported-constant REQ_NEXT_MATCH #o1017)
+  (define-exported-constant REQ_PREV_MATCH #o1020)
+  (define-exported-constant MIN_MENU_COMMAND REQ_LEFT_ITEM)
+  (define-exported-constant MAX_MENU_COMMAND REQ_PREV_MATCH))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; XSI attributes.  In the ncurses implementation, they are identical to the   ;;
@@ -1852,3 +1888,122 @@ see printw for examples."
   (win window-ptr)
   (lines :int)
   (columns :int))
+
+
+;; menu
+(progn
+  (define-exported-cfuns ("current_item")
+      item-ptr
+    (menu menu-ptr))
+
+  (define-exported-cfuns ("free_item")
+      :int
+    (item item-ptr))
+
+  (define-exported-cfuns ("free_menu")
+      :int
+    (menu menu-ptr))
+
+  (define-exported-cfuns ("item_count")
+      :int
+    (menu menu-ptr))
+
+  (define-exported-cfuns ("item_name" "item_description")
+      :string
+    (item item-ptr))
+
+  (define-exported-cfuns ("item_index")
+      :int
+    (item item-ptr))
+
+  ;; TODO:
+  ;; item_opts
+  ;; item_opts_on
+  ;; item_opts_off
+  ;; item_term
+  ;; item_userptr
+
+  (define-exported-cfuns ("item_value")
+      :boolean
+    (item item-ptr))
+
+  (define-exported-cfuns ("item_visible")
+      :boolean
+    (item item-ptr))
+
+  ;; TODO:
+  ;; menu_back
+  ;; menu_fore
+  ;; menu_format
+  ;; menu_grey
+  ;; menu_init
+
+  (define-exported-cfuns ("menu_driver")
+      :int
+    (menu menu-ptr)
+    (c :int))
+
+  (define-exported-cfuns ("menu_items")
+      :pointer ; returns (ITEM **)
+    (menu menu-ptr))
+
+  ;; TODO:
+  ;; menu_mark
+  ;; menu_opts
+  ;; menu_opts_off
+  ;; menu_opts_on
+
+  (define-exported-cfuns ("menu_pad")
+      :int
+    (menu menu-ptr))
+
+  (define-exported-cfuns ("menu_pattern")
+      char-ptr
+    (menu menu-ptr))
+
+  (define-exported-cfuns ("menu_request_by_name")
+      :int
+    (name char-ptr))
+
+  (define-exported-cfuns ("menu_request_name")
+      :int
+    (request :int))
+
+  (define-exported-cfuns ("menu_spacing")
+      :int
+    (menu menu-ptr)
+    (spc_description :int)
+    (spc_rows :int)
+    (spc_columns :int))
+
+  (define-exported-cfuns ("menu_sub")
+      window-ptr
+    (menu menu-ptr))
+
+  ;; TODO:
+  ;; menu_term
+  ;; menu_userptr
+  ;; menu_win
+  (define-exported-cfuns ("new_item")
+      item-ptr
+    (name char-ptr)
+    (description char-ptr))
+
+  (define-exported-cfuns ("new_menu")
+      menu-ptr
+    (items item-ptr))
+
+  (define-exported-cfuns ("set_menu_win")
+      :int
+    (menu menu-ptr)
+    (window window-ptr))
+
+  (define-exported-cfuns ("post_menu" "unpost_menu")
+      :int
+    (menu menu-ptr))
+
+  (define-exported-cfuns ("set_item_value")
+      :int
+    (item item-ptr)
+    (value :boolean))
+  )
