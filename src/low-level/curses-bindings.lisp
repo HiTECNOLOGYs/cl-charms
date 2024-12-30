@@ -40,9 +40,10 @@
               "libncursesw.so.5"
               "libncursesw.so.14.0"
               "libncursesw.so"))
-  (:windows (:or "libpdcurses"
-		 "pdcurses"
-		 "libcurses"))
+  (:windows (:or #-pdcurses "libncursesw6.dll"
+                 #+pdcurses "libpdcurses"
+                 #+pdcurses "pdcurses"
+                 #+pdcurses "libcurses"))
   (t (:default "libcurses")))
 
 #-unicode
@@ -58,9 +59,10 @@
               "libncursesw.so.14.0"
               "libncurses.so"
               "libcurses"))
-  (:windows (:or "libpdcurses"		;MSYS installed pdcurses
-		 "pdcurses"
-                 "libcurses"))
+  (:windows (:or #-pdcurses "libncursesw6.dll"
+                 #+pdcurses "libpdcurses"         ;MSYS installed pdcurses
+                 #+pdcurses "pdcurses"
+                 #+pdcurses "libcurses"))
   (t (:default "libcurses")))
 
 (cffi:use-foreign-library libcurses)
@@ -522,14 +524,14 @@
 (define-exported-cfuns ("start_color")
     :int)
 
-#-(or win32 mswindows)
+#-pdcurses
 (define-exported-cfuns ("COLOR_PAIR")
     :int
   (pair :int))
 
 ;; Win32 TODO: implement defun based on macro in pdcurses' curses.h
 
-#+(or win32 mswindows)
+#+pdcurses
 (progn
   (export 'color-pair)
   (defun color-pair (n) (logand (ash n 24) #xff000000)))
@@ -794,7 +796,7 @@
 (define-exported-cfuns ("curses_version")
     :string)
 
-#-(or win32 mswindows) ;; doesn't exist in pdcurses
+#-pdcurses ;; doesn't exist in pdcurses
 (define-exported-cfuns ("use_extended_names")
     :int
   (enable bool))
@@ -922,11 +924,11 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
     :int
   (win window-ptr))
 
-#-(or win32 mswindows)                  ; macro in pdcurses
+#-pdcurses                  ; macro in pdcurses
 (define-exported-cfuns ("getch")
     :int)
 
-#+(or win32 mswindows)
+#+pdcurses
 (progn
   (export 'getch)
   (defun getch ()
@@ -943,13 +945,13 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
   (y :int)
   (x :int))
 
-(define-exported-cfuns (#-(or win32 mswindows) "ungetch"
-                        #+(or win32 mswindows) "PDC_ungetch"
+(define-exported-cfuns (#-pdcurses "ungetch"
+                        #+pdcurses "PDC_ungetch"
                         "has_key")
     :int
   (ch :int))
 
-#+(or win32 mswindows)
+#+pdcurses
 (defun ungetch (ch)
   (PDC-ungetch ch))
 
@@ -1352,7 +1354,7 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 
 
 ;; keybound
-#-(or win32 mswindows)
+#-pdcurses
 (define-exported-cfuns ("keybound")
     :string
   (keycode :int)
@@ -1360,7 +1362,7 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 
 
 ;; keyok
-#-(or win32 mswindows)
+#-pdcurses
 (define-exported-cfuns ("keyok")
     :int
   (keycode :int)
@@ -1493,7 +1495,7 @@ value. Replaces primary value (which would be garbage) with :ERROR if C-function
 
 
 ;; print
-#-(or win32 mswindows)
+#-pdcurses
 (define-exported-cfuns ("mcprint")
     :int
   (data :string)
@@ -1577,19 +1579,19 @@ see printw for examples."
 
 
 ;; resizeterm
-#-(or win32 mswindows)
+#-pdcurses
 (define-exported-cfuns ("is_term_resized")
     bool
   (lines :int)
   (columns :int))
 
 (define-exported-cfuns ("resize_term"
-                        #-(or win32 mswindows) "resizeterm")
+                        #-pdcurses "resizeterm")
     :int
   (lines :int)
   (columns :int))
 
-#+(or win32 mswindows)
+#+pdcurses
 (progn
   (export 'resizeterm)
   (setf (fdefinition 'resizeterm) #'resize-term))
@@ -1695,7 +1697,6 @@ see printw for examples."
 ;; C-prototype: extern char PC; extern char *  UP;  extern  char  *  BC;  extern  short ospeed;
 ;; C-prototype: int tgetent(char *bp, const char *name);
 
-#-(or win32 mswindows)
 (define-exported-cfuns ("tgetflag" "tgetnum")
     :int
   (id char-ptr))
