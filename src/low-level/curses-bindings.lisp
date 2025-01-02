@@ -80,7 +80,9 @@
    The resulting function names are exported from the current package."
   `(progn
      ,@(loop :for name :in names
-             :for lisp-name := (cffi:translate-name-from-foreign name *package*)
+             :for lisp-name := (if (listp name)
+                                   (second name)
+                                   (cffi:translate-name-from-foreign name *package*))
              :collect `(cffi:defcfun ,name ,return-type ,@arguments)
              :collect `(export ',lisp-name))))
 
@@ -254,18 +256,69 @@
 
 
 ;; addwstr
+;; TODO: might be better to have separated name with addstr/addwstr series
+;; especially for nwstr but seems not many code actually using it.
+;; On windows msys2 libncurses environment seems not properly accept
+;; unicode on addstr and addwstr works without garbled.
+;; On other platforms it seems giving utf-8 to addstr series works well.
+;; Currently use addwstr on win32 with overriding names of addstr
+;; so that most of current codes using cl-charms works without patch.
 
-;; TODO:
-;;
-;; C Prototype: int addwstr(const wchar_t *wstr);
-;; C Prototype: int addnwstr(const wchar_t *wstr, int n);
-;; C Prototype: int waddwstr(WINDOW *win, const wchar_t *wstr);
-;; C Prototype: int waddnwstr(WINDOW *win, const wchar_t *wstr, int n);
-;; C Prototype: int mvaddwstr(int y, int x, const wchar_t *wstr);
-;; C Prototype: int mvaddnwstr(int y, int x, const wchar_t *wstr, int n);
-;; C Prototype: int mvwaddwstr(WINDOW *win, int y, int x, const wchar_t *wstr);
-;; C Prototype: int mvwaddnwstr(WINDOW *win, int y, int x, const wchar_t *wstr, int n);
+#+(or win32 mswindows)
+(define-exported-cfuns (("addwstr" addstr))
+    :int
+  (str (:string :encoding :utf-16)))
 
+#+(or win32 mswindows)
+(define-exported-cfuns (("addnwstr" addnstr))
+    :int
+  (str (:string :encoding :utf-16))
+  (n :int))
+
+#+(or win32 mswindows)
+(define-exported-cfuns (("waddwstr" waddstr))
+    :int
+  (win window-ptr)
+  (str (:string :encoding :utf-16)))
+
+#+(or win32 mswindows)
+(define-exported-cfuns (("waddnwstr" waddnstr))
+    :int
+  (win window-ptr)
+  (str (:string :encoding :utf-16))
+  (n :int))
+
+#+(or win32 mswindows)
+(define-exported-cfuns (("mvaddwstr" mvaddstr))
+    :int
+  (y :int)
+  (x :int)
+  (str (:string :encoding :utf-16)))
+
+#+(or win32 mswindows)
+(define-exported-cfuns (("mvaddnwstr" mvaddnstr))
+    :int
+  (y :int)
+  (x :int)
+  (str (:string :encoding :utf-16))
+  (n :int))
+
+#+(or win32 mswindows)
+(define-exported-cfuns (("mvwaddwstr" mvwaddstr))
+    :int
+  (win window-ptr)
+  (y :int)
+  (x :int)
+  (str (:string :encoding :utf-16)))
+
+#+(or win32 mswindows)
+(define-exported-cfuns (("mvwaddnwstr" mvwaddnstr))
+    :int
+  (win window-ptr)
+  (y :int)
+  (x :int)
+  (str (:string :encoding :utf-16))
+  (n :int))
 
 ;; attr
 (define-exported-cfuns ("attroff" "attron" "attrset")
