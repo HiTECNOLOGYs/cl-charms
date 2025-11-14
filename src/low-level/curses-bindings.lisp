@@ -36,10 +36,15 @@
 #+unicode
 (cffi:define-foreign-library libcurses
   (:darwin (:or "libncurses.dylib" "libcurses.dylib"))
-  (:unix (:or "libncursesw.so.6"
-              "libncursesw.so.5"
+  ;; Unversioned .so files are preferred for portability.
+  ;; Wide-char libraries (libncursesw) are required for Unicode support.
+  (:unix (:or "libncursesw.so"
               "libncursesw.so.14.0"
-              "libncursesw.so"))
+              "libncursesw.so.9"
+              "libncursesw.so.8"
+              "libncursesw.so.6"
+              "libncursesw.so.5"
+              "libcurses"))
   (:windows (:or #-pdcurses "libncursesw6.dll"
                  #+pdcurses "libpdcurses"
                  #+pdcurses "pdcurses"
@@ -50,17 +55,22 @@
 (cffi:define-foreign-library libcurses
   (:darwin (:or "libncurses.dylib"
                 "libcurses.dylib"))
-  (:unix (:or "libncursesw.so.6"        ; XXX: is this the right thing
-                                        ; to load? Should we also add
-                                        ; libncursesw.so as a
-                                        ; fallback?
+  ;; Even with Unicode feature disabled, we fallback to wide-char libraries
+  ;; since they're backwards-compatible.
+  (:unix (:or "libncurses.so"
+              "libncurses.so.9"
+              "libncurses.so.8"
               "libncurses.so.6"
               "libncurses.so.5"
+              "libncursesw.so"
               "libncursesw.so.14.0"
-              "libncurses.so"
+              "libncursesw.so.9"
+              "libncursesw.so.8"
+              "libncursesw.so.6"
+              "libncursesw.so.5"
               "libcurses"))
   (:windows (:or #-pdcurses "libncursesw6.dll"
-                 #+pdcurses "libpdcurses"         ;MSYS installed pdcurses
+                 #+pdcurses "libpdcurses"
                  #+pdcurses "pdcurses"
                  #+pdcurses "libcurses"))
   (t (:default "libcurses")))
